@@ -1,2 +1,3 @@
 # sgu_c
-Sevastopol State University conference site
+
+Contain PHP code for Sevastopol State University conference site http://sguc.code-bit.com/
