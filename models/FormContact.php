@@ -6,14 +6,14 @@ use Yii;
 use yii\base\Model;
 
 /**
- * Application create form
+ * ContactForm is the model behind the contact form.
  */
-class FormApplication extends Model
+class FormContact extends Model
 {
     public $name;
     public $email;
     public $subject;
-    public $attach;
+    public $body;
     public $captcha;
 
     /**
@@ -34,10 +34,10 @@ class FormApplication extends Model
     public function attributeLabels()
     {
         return [
-            'name'    => 'ФИО',
+            'name'    => 'Имя',
             'email'   => 'Email',
-            'subject' => 'Тема доклада',
-            'attach'  => 'Файл с докладом (только *.doc и *.docx)',
+            'subject' => 'Тема обращения',
+            'body'    => 'Текст обращения',
             'captcha' => 'Код проверки',
         ];
     }
@@ -47,13 +47,19 @@ class FormApplication extends Model
      * @param  string  $email the target email address
      * @return boolean whether the model passes validation
      */
-    public function create()
+    public function contact($email)
     {
-        $record          = new Application();
-        $record->name    = $this->name;
-        $record->email   = $this->email;
-        $record->subject = $this->subject;
-        return $record->save();
-    }
+        if ($this->validate()) {
+            Yii::$app->mailer->compose()
+                ->setTo($email)
+                ->setFrom([$this->email => $this->name])
+                ->setSubject($this->subject)
+                ->setTextBody($this->body)
+                ->send();
 
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

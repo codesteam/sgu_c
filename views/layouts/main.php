@@ -33,7 +33,7 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Главная', 'url' => ['/site/index']],
-                    ['label' => 'Архив', 'url' => ['/site/about']],
+                    // ['label' => 'Архив', 'url' => ['/site/about']],
                     ['label' => 'Связаться с нами', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Войти', 'url' => ['/site/login']] :
