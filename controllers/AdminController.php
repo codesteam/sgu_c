@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use app\models\Application;
 
 class AdminController extends Controller
 {
@@ -35,6 +36,9 @@ class AdminController extends Controller
 
     public function actionApplications()
     {
-        return $this->render('applications');
+        $data = [
+            'applications' => Application::find()->all(),
+        ];
+        return $this->render('applications', $data);
     }
 }

@@ -13,32 +13,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <br/>
     <table class="table">
         <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-          </tr>
+            <tr>
+                <th>#</th>
+                <th>Имя</th>
+                <th>Email</th>
+                <th>Тема доклада</th>
+            </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+            <? foreach ($applications as $application) :?>
+                <tr>
+                    <th scope="row"><?=$application->id?></th>
+                    <td><?=$application->name?></td>
+                    <td><?=$application->email?></td>
+                    <td><?=$application->subject?></td>
+                </tr>
+            <? endforeach ?>
         </tbody>
-      </table>
+    </table>
 </div>
