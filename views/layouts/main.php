@@ -18,12 +18,17 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
+<style type="text/css">
+ 
+</style>
 
 <?php $this->beginBody() ?>
-    <div class="wrap">
+    <? if (empty($this->params['pageWrap'])) :?>
+        <div class="wrap">
+    <? endif ?>
         <?php
             NavBar::begin([
-                'brandLabel' => 'СГУ конференции',
+                'brandLabel' => '<img alt="logo" src="/images/brand.png">',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -33,10 +38,9 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Главная', 'url' => ['/site/index']],
-                    // ['label' => 'Архив', 'url' => ['/site/about']],
                     ['label' => 'Связаться с нами', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Войти', 'url' => ['/site/login']] :
+                        ['label' => 'Войти', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'btn btn-success']] :
                         ['label' => 'Выйти (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
@@ -45,19 +49,23 @@ AppAsset::register($this);
             NavBar::end();
         ?>
 
+    <? if (empty($this->params['pageWrap'])) :?>
         <div class="container">
+    <? endif ?>
             <?= Breadcrumbs::widget([
                 'links'    => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 'homeLink' => isset($this->params['breadcrumbsHomeLink']) ? $this->params['breadcrumbsHomeLink'] : ['label' => 'Главная','url' => Yii::$app->homeUrl]
             ]) ?>
             <?= $content ?>
+    <? if (empty($this->params['pageWrap'])) :?>
         </div>
     </div>
+    <? endif ?>
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy;СГУ <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
+            <p class="pull-left">&copy; СГУ <?= date('Y') ?></p>
+            <p class="pull-right"><?= Html::a('CodeSteam', 'https://github.com/codesteam') ?></p>
         </div>
     </footer>
 

@@ -50,6 +50,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        Yii::$app->view->params['pageWrap'] = true;
         return $this->render('index');
     }
 

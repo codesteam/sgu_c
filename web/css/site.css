@@ -11,7 +11,7 @@ body {
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 100px 15px 20px;
 }
 
 .footer {
@@ -88,4 +88,40 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+}
+
+.navbar {
+    background: #232a31 none repeat scroll 0 0;
+    border-bottom: 0 none;
+}
+.navbar-header {
+    min-height: 80px;
+}
+.jumbotron {color:#232a31}
+.site-index .jumbotron {padding-top: 280px;background: #232a31 url("/images/main-bg.jpg") no-repeat scroll 0 0 / cover ;height:600px;margin-top: -70px}
+h1, h2, h3, h4 {
+    font-weight: bold;
+}
+.navbar .nav > li > a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    box-shadow: none;
+    color: #2cc76a;
+}
+.navbar .nav {
+    padding: 13px;
+}
+.btn-success {
+    background-color: #2cc76a;
+    background-image: none;
+    border-color: #2cc76a;
+}
+.btn-info {
+    background-color: #2db6d8;
+    background-image: none;
+    border-color: #2db6d8;
 }
