@@ -48,6 +48,15 @@ $this->title = 'My Yii Application';
                     </div>
                 </div>
             </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
     </div>
 </div>
