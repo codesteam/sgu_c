@@ -8,6 +8,10 @@
  * @license http://www.yiiframework.com/license/
  */
 
+// load env variables helper
+require_once(dirname(__FILE__).'/components/Env.php');
+\app\components\Env::load();
+
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 
 // fcgi doesn't have STDIN and STDOUT defined by default

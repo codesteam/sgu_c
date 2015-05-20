@@ -29,7 +29,9 @@ after 'deploy:create_symlink' do
 
   # install all vendors
   run "cd #{release_path} && composer install"
-  # /home/sguc/sguc-core/shared/runtime
+
+  # run YII migrations
+  run "#{current_path}/yii migrate --interactive=0"
 end
 
 after 'deploy:update', 'deploy:cleanup'
