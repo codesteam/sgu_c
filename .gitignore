@@ -2,3 +2,4 @@
 /runtime
 /web/assets
 /uploads
+/config/capistrano_env.rb
