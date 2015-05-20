@@ -25,7 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
         <div class="row">
             <div class="col-lg-5">
-                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+                <?php $form = ActiveForm::begin([
+                    'id'      => 'contact-form',
+                    'method'  => 'post',
+                    'options' => ['enctype'=>'multipart/form-data']
+                ]); ?>
                     <?= $form->field($model, 'name') ?>
                     <?= $form->field($model, 'email') ?>
                     <?= $form->field($model, 'subject') ?>

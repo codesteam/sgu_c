@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\web\UploadedFile;
 
 /**
  * Application create form
@@ -22,8 +23,9 @@ class FormApplication extends Model
     public function rules()
     {
         return [
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'email', 'subject', 'body', 'attach'], 'required'],
             ['email', 'email'],
+            ['attach', 'file'],
             ['captcha', 'captcha'],
         ];
     }
@@ -53,7 +55,15 @@ class FormApplication extends Model
         $record->name    = $this->name;
         $record->email   = $this->email;
         $record->subject = $this->subject;
-        return $record->save();
+        $result = $record->save();
+        if (!$result) {
+            return false;
+        } else {
+            $tempname     = Yii::$app->getSecurity()->generateRandomString(50);
+            $this->attach = UploadedFile::getInstance($this, 'attach');
+            $this->attach->saveAs(Yii::getAlias('@app').'/uploads/'.$tempname);
+            return true;
+        }
     }
 
 }
