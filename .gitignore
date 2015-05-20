@@ -3,3 +3,4 @@
 /web/assets
 /uploads
 /config/capistrano_env.rb
+/config/env.php

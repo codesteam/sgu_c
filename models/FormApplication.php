@@ -61,7 +61,7 @@ class FormApplication extends Model
         } else {
             $tempname     = Yii::$app->getSecurity()->generateRandomString(50);
             $this->attach = UploadedFile::getInstance($this, 'attach');
-            $this->attach->saveAs(Yii::getAlias('@app').'/uploads/'.$tempname);
+            $this->attach->saveAs(Yii::getAlias('@webroot').'/uploads/'.$tempname);
             return true;
         }
     }
