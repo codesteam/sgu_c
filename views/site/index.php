@@ -13,7 +13,7 @@ $this->title = 'Конференция кафедры информационны
             <?= Html::a('Подать заявку на участие', ['/site/application'], ['class' => 'btn btn-lg btn-success']) ?>
             &nbsp;
             &nbsp;
-            <?= Html::a('Cвязаться с нами', ['/site/contact'], ['class' => 'btn btn-lg btn-info']) ?>
+            <?= Html::a('Cвязаться с нами', ['/site/feedback'], ['class' => 'btn btn-lg btn-info']) ?>
         </p>
     </div>
     <div class="wrap">

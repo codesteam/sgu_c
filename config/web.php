@@ -42,7 +42,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
             'rules' => [
-            
+                '<view:(contact|info)>' => 'site/page',
             ],
         ],
     ],

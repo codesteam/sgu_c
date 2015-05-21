@@ -37,9 +37,9 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Главная', 'url' => ['/site/index']],
-                    ['label' => 'Информация о конференции', 'url' => ['/site/index']],
-                    ['label' => 'Контакты', 'url' => ['/site/index']],
+                    ['label' => 'Главная', 'url' => ['/']],
+                    ['label' => 'Информация о конференции', 'url' => ['/info']],
+                    ['label' => 'Контакты', 'url' => ['/contact']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Войти', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'btn btn-success']] :
                         ['label' => 'Выйти (' . Yii::$app->user->identity->username . ')',

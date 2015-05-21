@@ -77,7 +77,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionContact()
+    public function actionFeedback()
     {
         $model = new FormContact();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
@@ -85,7 +85,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         } else {
-            return $this->render('contact', [
+            return $this->render('feedback', [
                 'model' => $model,
             ]);
         }
@@ -102,8 +102,15 @@ class SiteController extends Controller
         }
     }
 
-    public function actionAbout()
+    public function actionPage($view)
     {
-        return $this->render('about');
+        $map = [
+            'contact' => '/static/contact',
+            'info'    => '/static/info',
+        ];
+        if (!isset($map[$view])) {
+            throw new HttpException(404);
+        }
+        return $this->render($map[$view]);
     }
 }
