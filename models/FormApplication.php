@@ -25,7 +25,7 @@ class FormApplication extends Model
         return [
             [['name', 'email', 'subject', 'body', 'attach'], 'required'],
             ['email', 'email'],
-            ['attach', 'file'],
+            ['attach', 'file', 'extensions' => ['doc', 'docx']],
             ['captcha', 'captcha'],
         ];
     }
@@ -59,8 +59,8 @@ class FormApplication extends Model
         if (!$result) {
             return false;
         } else {
-            $tempname     = Yii::$app->getSecurity()->generateRandomString(50);
             $this->attach = UploadedFile::getInstance($this, 'attach');
+            $tempname = Yii::$app->getSecurity()->generateRandomString(50).'.'.$this->attach->extension;
             $this->attach->saveAs(Yii::getAlias('@webroot').'/uploads/'.$tempname);
             return true;
         }

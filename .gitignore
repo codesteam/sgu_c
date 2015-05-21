@@ -1,6 +1,6 @@
 /vendor
 /runtime
 /web/assets
-/uploads
+/web/uploads
 /config/capistrano_env.rb
 /config/env.php
