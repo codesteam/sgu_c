@@ -38,7 +38,8 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Главная', 'url' => ['/site/index']],
-                    ['label' => 'Связаться с нами', 'url' => ['/site/contact']],
+                    ['label' => 'Информация о конференции', 'url' => ['/site/index']],
+                    ['label' => 'Контакты', 'url' => ['/site/index']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Войти', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'btn btn-success']] :
                         ['label' => 'Выйти (' . Yii::$app->user->identity->username . ')',
@@ -64,8 +65,8 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; СГУ <?= date('Y') ?></p>
-            <p class="pull-right"><?= Html::a('CodeSteam', 'https://github.com/codesteam') ?></p>
+            <p class="pull-left">&copy; Кафедра Информационных систем СевГУ <?= date('Y') ?></p>
+            <p class="pull-right"><?= Html::a('СевГУ', 'http://sevsu.ru') ?></p>
         </div>
     </footer>
 
