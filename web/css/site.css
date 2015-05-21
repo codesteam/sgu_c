@@ -98,7 +98,7 @@ a.desc:after {
     min-height: 80px;
 }
 .jumbotron {color:#232a31}
-.site-index .jumbotron {padding-top: 280px;background: #232a31 url("/images/main-bg.jpg") no-repeat scroll 0 0 / cover ;height:600px;margin-top: -70px}
+.site-index .jumbotron {padding-top: 200px;background: #232a31 url("/images/main-bg.jpg") no-repeat scroll 0 0 / cover ;height:600px;margin-top: -70px}
 h1, h2, h3, h4 {
     font-weight: bold;
 }
