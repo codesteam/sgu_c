@@ -51,17 +51,25 @@ class FormApplication extends Model
      */
     public function create()
     {
-        $record          = new Application();
-        $record->name    = $this->name;
-        $record->email   = $this->email;
-        $record->subject = $this->subject;
-        $result = $record->save();
+        $application          = new Application();
+        $application->name    = $this->name;
+        $application->email   = $this->email;
+        $application->subject = $this->subject;
+        $result = $application->save();
         if (!$result) {
             return false;
         } else {
             $this->attach = UploadedFile::getInstance($this, 'attach');
-            $tempname = Yii::$app->getSecurity()->generateRandomString(50).'.'.$this->attach->extension;
-            $this->attach->saveAs(Yii::getAlias('@webroot').'/uploads/'.$tempname);
+
+            // TODO check copy result
+            // TODO add DB transaction
+            $applicationFile                 = new ApplicationFile();
+            $applicationFile->application_id = $application->id;
+            $applicationFile->name           = Yii::$app->getSecurity()->generateRandomString(50).'.'.$this->attach->extension;
+            $applicationFile->save();
+
+            $this->attach->saveAs(Yii::getAlias('@webroot').'/uploads/'.$applicationFile->name);
+
             return true;
         }
     }

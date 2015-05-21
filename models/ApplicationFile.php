@@ -8,6 +8,6 @@ class ApplicationFile extends ActiveRecord
 {
     public static function tableName()
     {
-        return '{{%applications_files}}';
+        return '{{%application_files}}';
     }
 }
