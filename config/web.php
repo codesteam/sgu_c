@@ -43,6 +43,7 @@ $config = [
             'showScriptName'  => false,
             'rules' => [
                 '<view:(contact|info)>' => 'site/page',
+                'admin/application/<id:\d+>' => 'admin/application',
             ],
         ],
     ],

@@ -41,4 +41,12 @@ class AdminController extends Controller
         ];
         return $this->render('applications', $data);
     }
+
+    public function actionApplication($id)
+    {
+        $data = [
+            'application' => Application::findOne($id),
+        ];
+        return $this->render('application', $data);
+    }
 }

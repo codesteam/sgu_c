@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <th>Имя</th>
                 <th>Email</th>
                 <th>Тема доклада</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td><?=$application->name?></td>
                     <td><?=$application->email?></td>
                     <td><?=$application->subject?></td>
+                    <td><?= Html::a('Детали', ['admin/application', 'id' => $application->id]) ?></td>
                 </tr>
             <? endforeach ?>
         </tbody>
