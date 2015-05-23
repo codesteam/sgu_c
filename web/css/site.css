@@ -11,7 +11,7 @@ body {
 }
 
 .wrap > .container {
-    padding: 100px 15px 20px;
+    padding: 0px 15px 20px;
 }
 
 .footer {
@@ -124,4 +124,24 @@ h1, h2, h3, h4 {
     background-color: #2db6d8;
     background-image: none;
     border-color: #2db6d8;
+}
+
+.bs-docs-sidebar  { margin-top: 25px}
+    .bs-docs-sidebar  li > a {
+    display: block;
+    font-weight: 500;
+    padding: 4px 20px;
+}
+.bs-docs-sidebar  li > a:focus, .bs-docs-sidebar  li > a:hover {
+    background-color: transparent;
+    border-left: 1px solid #563d7c;
+    padding-left: 19px;
+    text-decoration: none;
+}
+.bs-docs-sidebar  .active:focus > a, .bs-docs-sidebar  .active:hover > a, 
+.bs-docs-sidebar  .active > a {
+    background-color: transparent;
+    border-left: 2px solid #563d7c;
+    font-weight: 700;
+    padding-left: 18px;
 }

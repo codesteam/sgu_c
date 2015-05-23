@@ -17,10 +17,8 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
-<style type="text/css">
- 
-</style>
+<!-- <body data-spy="scroll" data-target="#myScrollspy"> -->
+<body <?=!empty($this->params['pageScrollSpy']) ? 'data-spy="scroll" data-target="#'.$this->params['pageScrollSpy'].'"' : ''?>>
 
 <?php $this->beginBody() ?>
     <? if (empty($this->params['pageWrap'])) :?>
@@ -31,7 +29,7 @@ AppAsset::register($this);
                 'brandLabel' => '<img alt="logo" src="/images/brand.png">',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
+                    'class' => 'navbar-inverse',
                 ],
             ]);
             echo Nav::widget([

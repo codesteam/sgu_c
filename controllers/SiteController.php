@@ -111,6 +111,7 @@ class SiteController extends Controller
         if (!isset($map[$view])) {
             throw new HttpException(404);
         }
+        Yii::$app->view->params['pageScrollSpy'] = 'infoScrollSpy';
         return $this->render($map[$view]);
     }
 }
