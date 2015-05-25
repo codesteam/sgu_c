@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\FormLogin;
 use app\models\FormContact;
 use app\models\FormApplication;
+use app\models\Category;
 
 class SiteController extends Controller
 {
@@ -93,12 +94,13 @@ class SiteController extends Controller
 
     public function actionApplication()
     {
-        $model = new FormApplication();
+        $model      = new FormApplication();
+        $categories = Category::find()->all();
         if ($model->load(Yii::$app->request->post()) && $model->create()) {
             Yii::$app->session->setFlash('contactFormSubmitted');
             return $this->refresh();
         } else {
-            return $this->render('application', ['model' => $model]);
+            return $this->render('application', ['model' => $model, 'categories' => $categories]);
         }
     }
 

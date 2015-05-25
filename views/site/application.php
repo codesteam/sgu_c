@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+use yii\helpers\ArrayHelper;
 
 $this->title = 'Заявка на участие';
 $this->params['breadcrumbs'][] = $this->title;
@@ -30,9 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'method'  => 'post',
                     'options' => ['enctype'=>'multipart/form-data']
                 ]); ?>
+                    <?= $form->field($model, 'subject') ?>
+                    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'id', 'name')) ?>
                     <?= $form->field($model, 'name') ?>
                     <?= $form->field($model, 'email') ?>
-                    <?= $form->field($model, 'subject') ?>
                     <?= $form->field($model, 'attach')->fileInput() ?>
                     <?= $form->field($model, 'captcha')->widget(Captcha::className(), [
                         'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
