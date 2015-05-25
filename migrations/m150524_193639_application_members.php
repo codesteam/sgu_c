@@ -12,7 +12,6 @@ class m150524_193639_application_members extends Migration
             'name' => Schema::TYPE_STRING . ' NOT NULL',
         ]);
 
-        $this->truncateTable('applications');
         $this->dropColumn('applications', 'name');
         $this->dropColumn('applications', 'email');
         $this->addColumn('applications', 'report', Schema::TYPE_INTEGER. ' NOT NULL');
