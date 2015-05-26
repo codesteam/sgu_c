@@ -39,7 +39,7 @@ AppAsset::register($this);
                     ['label' => 'Информация о конференции', 'url' => ['/info']],
                     ['label' => 'Контакты', 'url' => ['/contact']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Войти', 'url' => ['/site/login'], 'linkOptions' => ['class' => 'btn btn-success']] :
+                        ['label' => 'Подать заявку', 'url' => ['/site/application'], 'linkOptions' => ['class' => 'btn btn-success']] :
                         ['label' => 'Выйти (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
