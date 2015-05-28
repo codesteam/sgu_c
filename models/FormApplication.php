@@ -28,7 +28,7 @@ class FormApplication extends Model
             [['name', 'email', 'subject', 'body', 'attach'], 'required'],
             ['email', 'email'],
             ['attach', 'file', 'extensions' => ['doc', 'docx']],
-            // ['captcha', 'captcha'],
+            ['captcha', 'captcha'],
         ];
     }
 
