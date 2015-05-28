@@ -26,7 +26,7 @@ AppAsset::register($this);
     <? endif ?>
         <?php
             NavBar::begin([
-                'brandLabel' => '<img alt="logo" src="/images/brand.png">',
+                'brandLabel' => '<img alt="logo" src="/images/brand_conf.png">',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse',
