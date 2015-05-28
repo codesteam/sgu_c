@@ -7,7 +7,7 @@ use yii\helpers\ArrayHelper;
 $this->title = 'Заявка на участие';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
+<div class="site-contact" ng-controller="SiteApplicationCtrl">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
@@ -25,22 +25,48 @@ $this->params['breadcrumbs'][] = $this->title;
             Пожалуйста внимательно заполняйте поле Email т.к. он будет использоваться для обратной связи.
         </p>
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-12">
                 <?php $form = ActiveForm::begin([
                     'id'      => 'contact-form',
                     'method'  => 'post',
+                    // 'class'   => 'form-horizontal',
+                    'layout' => 'horizontal',
                     'options' => ['enctype'=>'multipart/form-data']
                 ]); ?>
-                    <?= $form->field($model, 'subject') ?>
+                <div class="form-group"> 
+                        <div class="col-sm-offset-3 col-sm-6">
+                    <strong>Основная информация</strong>
+                    <hr/>
+                    </div>
+                        </div>
+                    <?= $form->field($model, 'report')->checkBox(['ng-model' => 'report']) ?>
+                    <?= $form->field($model, 'attach', ['options' => ['ng-if' => 'report']])->fileInput() ?>
+                    <div class="clearfix"></div>
                     <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'id', 'name')) ?>
                     <?= $form->field($model, 'name') ?>
                     <?= $form->field($model, 'email') ?>
-                    <?= $form->field($model, 'attach')->fileInput() ?>
+                    <div ng-repeat="member in members" >
+                        <div class="form-group"> 
+                        <div class="col-sm-offset-3 col-sm-6">
+                            <strong>Автор {{ $index + 2 }}</strong>
+                            <hr/>
+                        </div>
+                        </div>
+                        <div class="form-group"> 
+                            <?= Html::label('ФИО', '', ['class' => 'control-label col-sm-3']) ?>
+                            <div class="col-sm-6"> 
+                                <?= Html::input('text', 'name', '', ['class' => 'form-control']) ?>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
                     <?= $form->field($model, 'captcha')->widget(Captcha::className(), [
                         'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                     ]) ?>
-                    <div class="form-group">
-                        <?= Html::submitButton('Отправить', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>
+                    <div class="form-group ">
+                        <div class="col-sm-offset-3 col-sm-6">
+                            <?= Html::submitButton('Отправить', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>
+                        </div>
                     </div>
                 <?php ActiveForm::end(); ?>
             </div>

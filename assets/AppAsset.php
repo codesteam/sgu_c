@@ -21,6 +21,9 @@ class AppAsset extends AssetBundle
         'assets_app/css/site.css',
     ];
     public $js = [
+        'assets_app/js/angular.js',
+        'assets_app/js/app/app.coffee',
+        'assets_app/js/app/controllers/site-application.coffee',
     ];
     public $depends = [
         'yii\web\YiiAsset',

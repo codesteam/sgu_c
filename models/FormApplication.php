@@ -12,6 +12,7 @@ use yii\web\UploadedFile;
 class FormApplication extends Model
 {
     public $name;
+    public $report;
     public $email;
     public $subject;
     public $category_id;
@@ -39,9 +40,10 @@ class FormApplication extends Model
     {
         return [
             'name'        => 'ФИО',
+            'report'      => 'Участие с докладом',
             'email'       => 'Email',
             'subject'     => 'Тема доклада',
-            'attach'      => 'Файл с докладом (только *.doc и *.docx)',
+            'attach'      => 'Файл тезисов доклада',
             'captcha'     => 'Код проверки',
             'category_id' => 'Научное направление',
         ];

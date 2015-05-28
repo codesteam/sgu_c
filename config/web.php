@@ -46,6 +46,14 @@ $config = [
                 'admin/application/<id:\d+>' => 'admin/application',
             ],
         ],
+        'assetManager' => [
+            'converter' => [
+                'class' => 'yii\web\AssetConverter',
+                'commands' => [
+                    'coffee' => ['js', 'coffee -p {from} > {to}'],
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];
