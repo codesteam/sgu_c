@@ -21,7 +21,7 @@ $this->title = 'Межрегиональная научно-практическ
             <div class="body-content">
                 <div class="row">
                     <div class="col-lg-6 text-center">
-                        <img width="85" height="88" alt="secure" src="/images/support_img.png">
+                        <img width="85" height="88" alt="secure" src="/assets_app/images/support_img.png">
                         <h2>Тематические направления</h2>
                         <br/>
                         <table class="table text-left" >
@@ -43,7 +43,7 @@ $this->title = 'Межрегиональная научно-практическ
                         <p><a class="btn btn-info" href="/info#l-categories">Подробнее &raquo;</a></p>
                     </div>
                     <div class="col-lg-6 text-center">
-                        <img width="85" height="88" alt="secure" src="/images/secure_img.png">
+                        <img width="85" height="88" alt="secure" src="/assets_app/images/secure_img.png">
                         <h2>Важные даты</h2>
                         <br/    >
                         <table class="table text-left" >
