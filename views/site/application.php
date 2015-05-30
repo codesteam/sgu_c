@@ -39,14 +39,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                     <?= $form->field($model, 'report')->checkBox(['ng-model' => 'report']) ?>
-                    <?= $form->field($model, 'attach', ['options' => ['ng-if' => 'report', 'style' => 'padding-bottom:50px']])->fileInput() ?>
+                    <?= $form->field($model, 'attach', ['options' => ['ng-show' => 'report', 'class' => 'form-group']])->fileInput() ?>
                     <div class="clearfix"></div>
-                    <?= $form->field($model, 'members_count')->dropDownList($model->membersCountSelector(), ['ng-model' => 'members_count']) ?>
+                    <?= $form->field($model, 'members_count', ['options' => ['ng-show' => 'report', 'class' => 'form-group']])->dropDownList($model->membersCountSelector(), ['ng-model' => 'members_count']) ?>
                     <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'id', 'name')) ?>
                     <?= $form->field($model, 'name') ?>
                     <?= $form->field($model, 'email') ?>
                     <?= $form->field($model, 'comment')->textarea(['rows' => 4]) ?>
-                    <div ng-repeat="member in members" >
+                    <div ng-repeat="member in members" ng-show="report">
                         <div class="form-group"> 
                             <div class="col-sm-offset-3 col-sm-6">
                                 <strong>Автор {{ $index + 2 }}</strong>
