@@ -27,11 +27,28 @@ class FormApplication extends Model
     public function rules()
     {
         return [
-            [['name', 'email', 'body', 'attach'], 'required'],
+            [['name', 'email', 'category_id'], 'required'],
             ['email', 'email'],
+            ['members', 'checkMembers'],
             ['attach', 'file', 'extensions' => ['doc', 'docx']],
             ['captcha', 'captcha'],
         ];
+    }
+
+    public function checkMembers($attribute)
+    {
+        if (!empty($this->$attribute)) {
+            foreach ($this->$attribute as &$member) {
+                $member['name']           = isset($member['name'])         ? $member['name']         : '';
+                $member['email']          = isset($member['email'])        ? $member['name']         : '';
+                $member['phone']          = isset($member['phone'])        ? $member['phone']        : '';
+                $member['location']       = isset($member['location'])     ? $member['location']     : '';
+                $member['profession']     = isset($member['profession'])   ? $member['profession']   : '';
+                $member['rank']           = isset($member['rank'])         ? $member['rank']         : '';
+                $member['post_address']   = isset($member['post_address']) ? $member['post_address'] : '';
+            }
+            unset($member);
+        }
     }
 
     /**
@@ -84,26 +101,30 @@ class FormApplication extends Model
         $member->save();
 
         // save other members
-        foreach ($this->members as $member) {
-            $member                 = new ApplicationMember();
-            $member->application_id = $application->id;
-            $member->name           = isset($member['name'])         ? $member['name']         : '';
-            $member->email          = isset($member['email'])        ? $member['name']         : '';
-            $member->phone          = isset($member['phone'])        ? $member['phone']        : '';
-            $member->location       = isset($member['location'])     ? $member['location']     : '';
-            $member->profession     = isset($member['profession'])   ? $member['profession']   : '';
-            $member->rank           = isset($member['rank'])         ? $member['rank']         : '';
-            $member->post_address   = isset($member['post_address']) ? $member['post_address'] : '';
-            $member->save();
+        if (!empty($this->members)) {
+            foreach ($this->members as $row) {
+                $member                 = new ApplicationMember();
+                $member->application_id = $application->id;
+                $member->name           = $row['name'];
+                $member->email          = $row['email'];
+                $member->phone          = $row['phone'];
+                $member->location       = $row['location'];
+                $member->profession     = $row['profession'];
+                $member->rank           = $row['rank'];
+                $member->post_address   = $row['post_address'];
+                $member->save();
+            }
         }
 
         // save upload
-        $this->attach = UploadedFile::getInstance($this, 'attach');
-        $applicationFile                 = new ApplicationFile();
-        $applicationFile->application_id = $application->id;
-        $applicationFile->name           = Yii::$app->getSecurity()->generateRandomString(50).'.'.$this->attach->extension;
-        $applicationFile->save();
-        $this->attach->saveAs(Yii::getAlias('@webroot').'/uploads/'.$applicationFile->name);
+        if (!empty($this->attach)) {
+            $this->attach = UploadedFile::getInstance($this, 'attach');
+            $applicationFile                 = new ApplicationFile();
+            $applicationFile->application_id = $application->id;
+            $applicationFile->name           = Yii::$app->getSecurity()->generateRandomString(50).'.'.$this->attach->extension;
+            $applicationFile->save();
+            $this->attach->saveAs(Yii::getAlias('@webroot').'/uploads/'.$applicationFile->name);
+        }
 
         return true;
     }
