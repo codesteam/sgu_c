@@ -39,13 +39,13 @@ class FormApplication extends Model
     {
         if (!empty($this->$attribute)) {
             foreach ($this->$attribute as &$member) {
-                $member['name']           = isset($member['name'])         ? $member['name']         : '';
-                $member['email']          = isset($member['email'])        ? $member['name']         : '';
-                $member['phone']          = isset($member['phone'])        ? $member['phone']        : '';
-                $member['location']       = isset($member['location'])     ? $member['location']     : '';
-                $member['profession']     = isset($member['profession'])   ? $member['profession']   : '';
-                $member['rank']           = isset($member['rank'])         ? $member['rank']         : '';
-                $member['post_address']   = isset($member['post_address']) ? $member['post_address'] : '';
+                $member['name']         = isset($member['name'])         ? $member['name']         : '';
+                $member['email']        = isset($member['email'])        ? $member['name']         : '';
+                $member['phone']        = isset($member['phone'])        ? $member['phone']        : '';
+                $member['location']     = isset($member['location'])     ? $member['location']     : '';
+                $member['profession']   = isset($member['profession'])   ? $member['profession']   : '';
+                $member['rank']         = isset($member['rank'])         ? $member['rank']         : '';
+                $member['post_address'] = isset($member['post_address']) ? $member['post_address'] : '';
             }
             unset($member);
         }

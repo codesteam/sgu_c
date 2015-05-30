@@ -37,7 +37,7 @@ class AdminController extends Controller
     public function actionApplications()
     {
         $data = [
-            'applications' => Application::find()->all(),
+            'applications' => Application::find()->joinWith('category')->all(),
         ];
         return $this->render('applications', $data);
     }
