@@ -30,6 +30,7 @@ class FormApplication extends Model
             [['name', 'email', 'category_id'], 'required'],
             ['email', 'email'],
             ['members', 'checkMembers'],
+            ['comment', 'safe'],
             ['attach', 'file', 'extensions' => ['doc', 'docx']],
             ['captcha', 'captcha'],
         ];

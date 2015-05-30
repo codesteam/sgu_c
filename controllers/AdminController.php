@@ -37,7 +37,7 @@ class AdminController extends Controller
     public function actionApplications()
     {
         $data = [
-            'applications' => Application::find()->joinWith('category')->all(),
+            'applications' => Application::find()->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
         ];
         return $this->render('applications', $data);
     }

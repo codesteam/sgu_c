@@ -28,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <th scope="row"><?=$application->id?></th>
                     <td><?=$application->category->name?></td>
                     <td><?=count($application->applicationMembers)?></td>
-                    <td><?=$application->applicationMembers[0]->name?></td>
-                    <td><?=$application->applicationMembers[0]->email?></td>
+                    <td><?=Html::encode($application->applicationMembers[0]->name)?></td>
+                    <td><?=Html::encode($application->applicationMembers[0]->email)?></td>
                     <td><?= Html::a('Детали', ['admin/application', 'id' => $application->id]) ?></td>
                 </tr>
             <? endforeach ?>
