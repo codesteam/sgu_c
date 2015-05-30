@@ -29,33 +29,40 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php $form = ActiveForm::begin([
                     'id'      => 'contact-form',
                     'method'  => 'post',
-                    // 'class'   => 'form-horizontal',
-                    'layout' => 'horizontal',
+                    'layout'  => 'horizontal',
                     'options' => ['enctype'=>'multipart/form-data']
                 ]); ?>
-                <div class="form-group"> 
+                    <div class="form-group"> 
                         <div class="col-sm-offset-3 col-sm-6">
-                    <strong>Основная информация</strong>
-                    <hr/>
-                    </div>
+                            <strong>Основная информация</strong>
+                            <hr/>
                         </div>
+                    </div>
                     <?= $form->field($model, 'report')->checkBox(['ng-model' => 'report']) ?>
                     <?= $form->field($model, 'attach', ['options' => ['ng-if' => 'report']])->fileInput() ?>
                     <div class="clearfix"></div>
+                    <?= $form->field($model, 'members_count')->dropDownList($model->membersCountSelector(), ['ng-model' => 'members_count']) ?>
                     <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'id', 'name')) ?>
                     <?= $form->field($model, 'name') ?>
                     <?= $form->field($model, 'email') ?>
+                    <?= $form->field($model, 'comment')->textarea(['rows' => 4]) ?>
                     <div ng-repeat="member in members" >
                         <div class="form-group"> 
-                        <div class="col-sm-offset-3 col-sm-6">
-                            <strong>Автор {{ $index + 2 }}</strong>
-                            <hr/>
-                        </div>
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <strong>Автор {{ $index + 2 }}</strong>
+                                <hr/>
+                            </div>
                         </div>
                         <div class="form-group"> 
                             <?= Html::label('ФИО', '', ['class' => 'control-label col-sm-3']) ?>
                             <div class="col-sm-6"> 
-                                <?= Html::input('text', 'name', '', ['class' => 'form-control']) ?>
+                                <?= Html::input('text', 'FormApplication[members][{{$index}}][name]', '', ['class' => 'form-control', 'ng-model'=> 'member.name']) ?>
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <?= Html::label('Email', '', ['class' => 'control-label col-sm-3']) ?>
+                            <div class="col-sm-6"> 
+                                <?= Html::input('text', 'FormApplication[members][{{$index}}][email]', '', ['class' => 'form-control', 'ng-model'=> 'member.email']) ?>
                             </div>
                         </div>
                     </div>
