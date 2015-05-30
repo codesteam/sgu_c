@@ -19,6 +19,11 @@ class FormApplication extends Model
     public $captcha;
     public $comment;
     public $members;
+    public $location;
+    public $profession;
+    public $rank;
+    public $post_address;
+    public $phone;
     public $members_count;
 
     /**
@@ -30,7 +35,7 @@ class FormApplication extends Model
             [['name', 'email', 'category_id'], 'required'],
             ['email', 'email'],
             ['members', 'checkMembers'],
-            ['comment', 'safe'],
+            [['comment', 'phone', 'location', 'profession', 'rank', 'post_address'], 'safe'],
             ['attach', 'file', 'extensions' => ['doc', 'docx']],
             ['captcha', 'captcha'],
         ];
@@ -66,6 +71,11 @@ class FormApplication extends Model
             'captcha'       => 'Код проверки',
             'category_id'   => 'Научное направление',
             'members_count' => 'Количество авторов',
+            'location'      => 'Страна, город',
+            'profession'    => 'Место работы (полностью)',
+            'rank'          => 'Должность, степень, звание',
+            'post_address'  => 'Почтовый адрес (для переписки)',
+            'phone'         => 'Контактные телефоны, факс',
         ];
     }
 
@@ -94,11 +104,11 @@ class FormApplication extends Model
         $member->application_id = $application->id;
         $member->name           = $this->name;
         $member->email          = $this->email;
-        $member->phone          = '';
-        $member->location       = '';
-        $member->profession     = '';
-        $member->rank           = '';
-        $member->post_address   = '';
+        $member->phone          = $this->phone;
+        $member->location       = $this->location;
+        $member->profession     = $this->profession;
+        $member->rank           = $this->rank;
+        $member->post_address   = $this->post_address;
         $member->save();
 
         // save other members

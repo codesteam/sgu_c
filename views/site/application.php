@@ -45,6 +45,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'id', 'name')) ?>
                     <?= $form->field($model, 'name') ?>
                     <?= $form->field($model, 'email') ?>
+                    <?= $form->field($model, 'location') ?>
+                    <?= $form->field($model, 'profession') ?>
+                    <?= $form->field($model, 'rank') ?>
+                    <?= $form->field($model, 'post_address') ?>
+                    <?= $form->field($model, 'phone') ?>
                     <?= $form->field($model, 'comment')->textarea(['rows' => 4]) ?>
                     <div ng-repeat="member in members" ng-show="report">
                         <div class="form-group"> 
@@ -80,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="form-group"> 
                             <?= Html::label('Почтовый адрес (для переписки)', '', ['class' => 'control-label col-sm-3']) ?>
                             <div class="col-sm-6"> 
-                                <?= Html::input('text', 'FormApplication[members][{{$index}}][post_address]', '', ['class' => 'form-control', 'ng-model'=> 'member.post_address']) ?>
+                                <?= Html::input('text', 'FormApplication[members][{{$index}}][post_addresspost_address]', '', ['class' => 'form-control', 'ng-model'=> 'member.post_address']) ?>
                             </div>
                         </div>
                         <div class="form-group"> 
