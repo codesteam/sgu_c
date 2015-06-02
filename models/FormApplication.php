@@ -128,8 +128,8 @@ class FormApplication extends Model
         }
 
         // save upload
+        $this->attach = UploadedFile::getInstance($this, 'attach');
         if (!empty($this->attach)) {
-            $this->attach = UploadedFile::getInstance($this, 'attach');
             $applicationFile                 = new ApplicationFile();
             $applicationFile->application_id = $application->id;
             $applicationFile->name           = Yii::$app->getSecurity()->generateRandomString(50).'.'.$this->attach->extension;

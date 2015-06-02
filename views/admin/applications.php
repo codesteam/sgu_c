@@ -19,6 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <th>Участников</th>
                 <th>Имя</th>
                 <th>Email</th>
+                <th>Доклад</th>
                 <th>Действия</th>
             </tr>
         </thead>
@@ -30,6 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td><?=count($application->applicationMembers)?></td>
                     <td><?=Html::encode($application->applicationMembers[0]->name)?></td>
                     <td><?=Html::encode($application->applicationMembers[0]->email)?></td>
+                    <td>
+                        <? if (count($application->applicationFiles)): ?>
+                            <span class="label label-success">Да</span>
+                        <? else: ?>
+                            <span class="label label-danger">Нет</span>
+                        <? endif ?>
+                    </td>
                     <td><?= Html::a('Детали', ['admin/application', 'id' => $application->id]) ?></td>
                 </tr>
             <? endforeach ?>

@@ -41,4 +41,25 @@ $this->params['breadcrumbs'][] = $this->title;
             <? endforeach ?>
         </tbody>
     </table>
+    <? if (count($application->applicationFiles)) :?>
+        <strong>Файлы:</strong>
+        <br/>
+        <br/>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Файл</th>
+                </tr>
+            </thead>
+            <tbody>
+                <? foreach ($application->applicationFiles as $index => $file) :?>
+                    <tr>
+                        <th scope="row"><?=$index + 1?></th>
+                        <td><?=Html::a($file->name, '/uploads/'.$file->name, ['target' => '_blank'])?></td>
+                    </tr>
+                <? endforeach ?>
+            </tbody>
+        </table>
+    <? endif ?>
 </div>
