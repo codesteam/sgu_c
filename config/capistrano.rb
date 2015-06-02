@@ -30,6 +30,9 @@ after 'deploy:create_symlink' do
   # install all vendors
   run "cd #{release_path} && composer install"
 
+  # TODO: fix it use Yii2 assets
+  run "chmod -R 777 #{current_path}/web/assets_app"
+
   # run YII migrations
   run "#{current_path}/yii migrate --interactive=0"
 end
