@@ -85,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="form-group"> 
                             <?= Html::label('Почтовый адрес (для переписки)', '', ['class' => 'control-label col-sm-3']) ?>
                             <div class="col-sm-6"> 
-                                <?= Html::input('text', 'FormApplication[members][{{$index}}][post_addresspost_address]', '', ['class' => 'form-control', 'ng-model'=> 'member.post_address']) ?>
+                                <?= Html::input('text', 'FormApplication[members][{{$index}}][post_address]', '', ['class' => 'form-control', 'ng-model'=> 'member.post_address']) ?>
                             </div>
                         </div>
                         <div class="form-group"> 
