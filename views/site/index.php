@@ -5,7 +5,7 @@ $this->title = 'Межрегиональная научно-практическ
  отечественных информационных технологий';
 ?>
 <div class="site-index">
-    <div class="jumbotron">
+    <div class="jumbotron hidden-xs hidden-sm">
         <h1>Перспективные направления развития отечественных информационных технологий</h1>
         <h2>Межрегиональная научно-практическая конференция</h2>
         <br/>
@@ -13,6 +13,17 @@ $this->title = 'Межрегиональная научно-практическ
             <?= Html::a('Подать заявку на участие', ['/site/application'], ['class' => 'btn btn-lg btn-success']) ?>
             &nbsp;
             &nbsp;
+            <?= Html::a('Cвязаться с нами', ['/site/feedback'], ['class' => 'btn btn-lg btn-info']) ?>
+        </p>
+    </div>
+    <div class="wrap text-center visible-xs visible-sm">
+        <h1>Перспективные направления развития отечественных информационных технологий</h1>
+        <h2>Межрегиональная научно-практическая конференция</h2>
+        <br/>
+        <p>
+            <?= Html::a('Подать заявку на участие', ['/site/application'], ['class' => 'btn btn-lg btn-success']) ?>
+        </p>
+        <p>
             <?= Html::a('Cвязаться с нами', ['/site/feedback'], ['class' => 'btn btn-lg btn-info']) ?>
         </p>
     </div>

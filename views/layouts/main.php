@@ -35,9 +35,9 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Главная', 'url' => ['/']],
+                    ['label' => 'Главная', 'url' => ['/'], 'linkOptions' => ['class' => 'hidden-sm']],
                     ['label' => 'Информация о конференции', 'url' => ['/info']],
-                    ['label' => 'Контакты', 'url' => ['/contact']],
+                    ['label' => 'Контакты', 'url' => ['/contact'], 'linkOptions' => ['class' => 'hidden-sm']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Подать заявку', 'url' => ['/site/application'], 'linkOptions' => ['class' => 'btn btn-success']] :
                         ['label' => 'Выйти (' . Yii::$app->user->identity->username . ')',
