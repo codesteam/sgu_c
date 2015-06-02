@@ -1,6 +1,8 @@
 /vendor
 /runtime
 /web/assets
+/web/assets_app/js/app/*.js
+/web/assets_app/js/app/controllers/*.js
 /web/uploads
 /config/capistrano_env.rb
 /config/env.php

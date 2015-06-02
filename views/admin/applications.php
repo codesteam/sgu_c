@@ -15,9 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <thead>
             <tr>
                 <th>#</th>
+                <th>Научное направление</th>
+                <th>Участников</th>
                 <th>Имя</th>
                 <th>Email</th>
-                <th>Тема доклада</th>
                 <th>Действия</th>
             </tr>
         </thead>
@@ -25,9 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <? foreach ($applications as $application) :?>
                 <tr>
                     <th scope="row"><?=$application->id?></th>
-                    <td><?=$application->name?></td>
-                    <td><?=$application->email?></td>
-                    <td><?=$application->subject?></td>
+                    <td><?=$application->category->name?></td>
+                    <td><?=count($application->applicationMembers)?></td>
+                    <td><?=Html::encode($application->applicationMembers[0]->name)?></td>
+                    <td><?=Html::encode($application->applicationMembers[0]->email)?></td>
                     <td><?= Html::a('Детали', ['admin/application', 'id' => $application->id]) ?></td>
                 </tr>
             <? endforeach ?>
