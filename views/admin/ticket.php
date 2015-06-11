@@ -21,9 +21,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <? foreach ($ticket->ticketMessages as $message) :?>
                 <tr>
                     <th scope="row"><?=$message->id?></th>
-                    <td><?=$message->email?></td>
-                    <td><?=$message->body?></td>
-                    <td><?=$message->created_at?></td>
+                    <td><?=Html::encode($message->email)?></td>
+                    <td><?=Html::encode($message->body)?></td>
+                    <td><?=Html::encode($message->created_at)?></td>
                 </tr>
             <? endforeach ?>
         </tbody>

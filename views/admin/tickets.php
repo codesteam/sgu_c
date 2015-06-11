@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <? foreach ($tickets as $ticket) :?>
                 <tr>
                     <th scope="row"><?=$ticket->id?></th>
-                    <td><?=$ticket->subject?></td>
+                    <td><?=Html::encode($ticket->subject)?></td>
                     <td><?=count($ticket->ticketMessages)?></td>
                     <td><?= Html::a('Детали', ['admin/ticket', 'id' => $ticket->id]) ?></td>
                 </tr>
