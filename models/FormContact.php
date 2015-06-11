@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\db\Expression;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -50,12 +51,17 @@ class FormContact extends Model
     public function contact($email)
     {
         if ($this->validate()) {
-            Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
-                ->send();
+            $ticket             = new Ticket();
+            $ticket->subject    = $this->subject;
+            $ticket->created_at = new Expression('NOW()');
+            $ticket->save();
+
+            $ticketMessage             = new TicketMessage();
+            $ticketMessage->ticket_id  = $ticket->id;
+            $ticketMessage->email      = $this->email;
+            $ticketMessage->body       = $this->body;
+            $ticketMessage->created_at = new Expression('NOW()');
+            $ticketMessage->save();
 
             return true;
         } else {
