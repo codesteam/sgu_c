@@ -24,13 +24,14 @@ set :keep_releases, 5
 namespace :deploy do
 
   task :app_setup do
-    on roles(:all) do
+    on roles(:web) do
       # Env config for app
       env_php = "<?php \n return json_decode('#{fetch(:node_config)['app_env_options'].to_json}', 1);"
       upload! StringIO.new(env_php), "#{current_path}/config/env.php"
       execute "chmod 644 #{current_path}/config/env.php"
-      execute "chmod 777 #{current_path}/web/assets_app/js/app"
-      execute "chmod 777 #{current_path}/web/assets_app/js/app/controllers"
+
+      # TODO: fix it use Yii2 assets
+      execute "chmod -R 777 #{current_path}/web/assets_app"
 
       # Install all vendors with composer
       execute "cd #{release_path} && composer install"
