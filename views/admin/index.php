@@ -18,7 +18,7 @@ $this->title = 'Панель администратора';
             </div>
             <div class="col-lg-3 text-center">
                 <span class="glyphicon glyphicon-envelope" style="font-size:80px"></span><br/>
-                <?= Html::a('Список обращений с вопросами', ['/admin/support']) ?>
+                <?= Html::a('Список обращений с вопросами', ['/admin/tickets']) ?>
             </div>
         </div>
     </div>
