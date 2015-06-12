@@ -6,8 +6,7 @@ $this->params['breadcrumbs'][] = ['url' => ['admin/tickets'], 'label' => 'Все
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
-    <h1><?= Html::encode($this->title) ?></h1>
-    <br/>
+    <?= $this->render('_menu', ['active' => 'tickets']) ?>
     <table class="table">
         <thead>
             <tr>

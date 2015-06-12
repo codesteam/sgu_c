@@ -1,17 +1,32 @@
 <?php
 use yii\helpers\Html;
+use app\helpers\HtmlApplication;
 
 $this->title = 'Заявка на участие #'.$application->id;
 $this->params['breadcrumbs'][] = ['url' => ['admin/applications'], 'label' => 'Все заявки'];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
-    <h1><?= Html::encode($this->title) ?></h1>
-    <strong>Научное направление:</strong> <?=Html::encode($application->category->name)?><br/>
-    <strong>Участников:</strong> <?=count($application->applicationMembers)?><br/>
-    <strong>Комментарий:</strong> <?=Html::encode($application->comment)?><br/>
-    <strong>Участники:</strong>
+    <?= $this->render('_menu', ['active' => 'applications']) ?>
+    <h4><?= Html::encode($this->title) ?></h4>
     <br/>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Научное направление</td><td><?=Html::encode($application->category->name)?></td>
+            </tr>
+            <tr>
+                <td>Участников</td><td><?=count($application->applicationMembers)?></td>
+            </tr>
+            <tr>
+                <td>Статус</td><td><?=HtmlApplication::status($application->status)?></td>
+            </tr>
+            <tr>
+                <td>Комментарий</td><td><?=Html::encode($application->comment)?></td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>Участники</h4>
     <br/>
     <table class="table">
         <thead>
@@ -42,8 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </tbody>
     </table>
     <? if (count($application->applicationFiles)) :?>
-        <strong>Файлы:</strong>
-        <br/>
+        <h4>Файлы</h4>
         <br/>
         <table class="table">
             <thead>

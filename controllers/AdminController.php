@@ -32,7 +32,7 @@ class AdminController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->redirect('/admin/applications',302);
     }
 
     public function actionApplications()

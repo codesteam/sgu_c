@@ -5,8 +5,10 @@ $this->title = 'Список обращений';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
-    <h1><?= Html::encode($this->title) ?></h1>
-    <br/>
+    <?= $this->render('_menu', ['active' => 'tickets']) ?>
+    <p>
+        Эта страница предназначена для управления и просмотра списка обращений и вопросов.
+    </p>
     <table class="table">
         <thead>
             <tr>

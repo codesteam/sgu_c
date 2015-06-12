@@ -1,16 +1,15 @@
 <?php
 use yii\helpers\Html;
+use app\helpers\HtmlApplication;
 
 $this->title = 'Список заявок на участие';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
-    <h1><?= Html::encode($this->title) ?></h1>
-    <br/>
+    <?= $this->render('_menu', ['active' => 'applications']) ?>
     <p>
         Эта страница предназначена для управления и редактирования списка заявок для участия в конференции.
     </p>
-    <br/>
     <table class="table">
         <thead>
             <tr>
@@ -19,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <th>Участников</th>
                 <th>Имя</th>
                 <th>Email</th>
+                <th>Статус</th>
                 <th>Доклад</th>
                 <th>Действия</th>
             </tr>
@@ -31,13 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td><?=count($application->applicationMembers)?></td>
                     <td><?=Html::encode($application->applicationMembers[0]->name)?></td>
                     <td><?=Html::encode($application->applicationMembers[0]->email)?></td>
-                    <td>
-                        <? if (count($application->applicationFiles)): ?>
-                            <span class="label label-success">Да</span>
-                        <? else: ?>
-                            <span class="label label-danger">Нет</span>
-                        <? endif ?>
-                    </td>
+                    <td><?=HtmlApplication::status($application->status)?></td>
+                    <td><?=HtmlApplication::filesStatus($application)?></td>
                     <td><?= Html::a('Детали', ['admin/application', 'id' => $application->id]) ?></td>
                 </tr>
             <? endforeach ?>

@@ -6,6 +6,10 @@ use yii\db\ActiveRecord;
 
 class Application extends ActiveRecord
 {
+    const STATUS_DRAFT    = 'draft';
+    const STATUS_APPROVED = 'approved';
+    const STATUS_DECLINED = 'declined';
+
     public static function tableName()
     {
         return '{{%applications}}';

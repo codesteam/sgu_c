@@ -1,11 +1,11 @@
 <?php
 // load env variables helper
-require_once(dirname(__FILE__).'/../components/Env.php');
-\app\components\Env::load();
+require_once(dirname(__FILE__).'/../helpers/Env.php');
+\app\helpers\Env::load();
 
 // comment out the following two lines when deployed to production
-defined('YII_DEBUG') or define('YII_DEBUG',  \app\components\Env::get('yii_debug'));
-defined('YII_ENV') or define('YII_ENV',  \app\components\Env::get('yii_env'));
+defined('YII_DEBUG') or define('YII_DEBUG',  \app\helpers\Env::get('yii_debug'));
+defined('YII_ENV') or define('YII_ENV',  \app\helpers\Env::get('yii_env'));
 
 
 require(__DIR__ . '/../vendor/autoload.php');

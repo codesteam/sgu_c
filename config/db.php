@@ -1,6 +1,6 @@
 <?php
 
-use app\components\Env;
+use app\helpers\Env;
 
 return [
     'class'    => 'yii\db\Connection',
