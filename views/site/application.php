@@ -5,7 +5,6 @@ use yii\captcha\Captcha;
 use yii\helpers\ArrayHelper;
 
 $this->title = 'Заявка на участие';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact" ng-controller="SiteApplicationCtrl">
     <h1><?= Html::encode($this->title) ?></h1>

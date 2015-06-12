@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 use app\helpers\HtmlApplication;
+use app\models\Application;
 
 $this->title = 'Заявка на участие #'.$application->id;
 $this->params['breadcrumbs'][] = ['url' => ['admin/applications'], 'label' => 'Все заявки'];
@@ -19,7 +21,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td>Участников</td><td><?=count($application->applicationMembers)?></td>
             </tr>
             <tr>
-                <td>Статус</td><td><?=HtmlApplication::status($application->status)?></td>
+                <td>Статус</td>
+                <td>
+                    <?php $form = ActiveForm::begin([
+                        'action' => ['/admin/application-set-status', 'id' => $application->id],
+                        'method' => 'post',
+                        'layout' => 'inline'
+                    ]); ?>
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                            <? 
+                                $statusesList = [
+                                    Application::STATUS_DRAFT    => 'Черновик',
+                                    Application::STATUS_APPROVED => 'Завершено',
+                                    Application::STATUS_DECLINED => 'Отклонено',
+                                ];
+                            ?>
+                            <?=$form->field($application, 'status')->dropDownList($statusesList, ['class' => 'form-control input-sm']) ?>
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-info">Сохранить</button>
+                    <?php ActiveForm::end(); ?>
+                </td>
             </tr>
             <tr>
                 <td>Комментарий</td><td><?=Html::encode($application->comment)?></td>

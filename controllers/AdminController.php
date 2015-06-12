@@ -32,7 +32,7 @@ class AdminController extends Controller
 
     public function actionIndex()
     {
-        return $this->redirect('/admin/applications',302);
+        return $this->redirect(['/admin/applications'], 302);
     }
 
     public function actionApplications()
@@ -49,6 +49,16 @@ class AdminController extends Controller
             'application' => Application::findOne($id),
         ];
         return $this->render('application', $data);
+    }
+
+    public function actionApplicationSetStatus($id)
+    {
+        $application = Application::findOne($id);
+        if ($application) {
+            $application->status = Yii::$app->request->post('Application')['status'];
+            $application->save();
+        }
+        return $this->redirect(['/admin/application', 'id' => $id], 302);
     }
 
     public function actionTickets()
