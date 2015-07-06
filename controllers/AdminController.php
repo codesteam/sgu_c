@@ -4,11 +4,10 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use app\models\Application;
 use app\models\Ticket;
 
-class AdminController extends Controller
+class AdminController extends Base
 {
     public function behaviors()
     {
@@ -37,6 +36,9 @@ class AdminController extends Controller
 
     public function actionApplications()
     {
+        if (!Yii::$app->user->can('application_listing')) {
+            return $this->accessDenied();
+        }
         $data = [
             'applications' => Application::find()->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
         ];
@@ -45,6 +47,9 @@ class AdminController extends Controller
 
     public function actionApplication($id)
     {
+        if (!Yii::$app->user->can('application_listing')) {
+            return $this->accessDenied();
+        }
         $data = [
             'application' => Application::findOne($id),
         ];
@@ -53,6 +58,9 @@ class AdminController extends Controller
 
     public function actionApplicationSetStatus($id)
     {
+        if (!Yii::$app->user->can('application_set_status')) {
+            return $this->accessDenied();
+        }
         $application = Application::findOne($id);
         if ($application) {
             $application->status = Yii::$app->request->post('Application')['status'];
@@ -63,6 +71,9 @@ class AdminController extends Controller
 
     public function actionTickets()
     {
+        if (!Yii::$app->user->can('ticket_listing')) {
+            return $this->accessDenied();
+        }
         $data = [
             'tickets' => Ticket::find()->orderBy(['id' => SORT_DESC])->all(),
         ];
@@ -71,6 +82,9 @@ class AdminController extends Controller
 
     public function actionTicket($id)
     {
+        if (!Yii::$app->user->can('ticket_listing')) {
+            return $this->accessDenied();
+        }
         $data = [
             'ticket' => Ticket::findOne($id),
         ];
