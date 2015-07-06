@@ -53,7 +53,7 @@ AppAsset::register($this);
     <? endif ?>
             <?= Breadcrumbs::widget([
                 'links'    => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                'homeLink' => isset($this->params['breadcrumbsHomeLink']) ? $this->params['breadcrumbsHomeLink'] : ['label' => 'Главная','url' => Yii::$app->homeUrl]
+                'homeLink' => ['label' => 'Панель администратора','url' => '/admin/']
             ]) ?>
             <?= $content ?>
     <? if (empty($this->params['pageWrap'])) :?>

@@ -24,11 +24,6 @@ class AdminController extends Base
         ];
     }
 
-    public function init()
-    {
-        Yii::$app->view->params['breadcrumbsHomeLink'] = ['label' => 'Панель администратора','url' => '/admin/'];
-    }
-
     public function actionIndex()
     {
         return $this->redirect(['/admin/applications'], 302);
