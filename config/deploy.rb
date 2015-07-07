@@ -5,31 +5,22 @@ lock '3.4.0'
 
 set :application, 'SGUC'
 set :repo_url, 'git@github.com:codesteam/sgu_c.git'
+set :scm, :git
+set :keep_releases, 5
 
-# Default branch is :master
+# Git branch
 set :branch, 'master'
 
-# Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, ->{ fetch(:node_config)['app_dir'] }
+# Deploy directory
+set :deploy_to, ->{ fetch(:deploy_to) }
 
-# Default value for :scm is :git
-set :scm, :git
-
-# Default value for linked_dirs is []
+# Shared folders between all releases
 set :linked_dirs, %w{runtime vendor web/assets web/uploads}
-
-# Default value for keep_releases is 5
-set :keep_releases, 5
 
 namespace :deploy do
 
   task :app_setup do
     on roles(:web) do
-      # Env config for app
-      env_php = "<?php \n return json_decode('#{fetch(:node_config)['app_env_options'].to_json}', 1);"
-      upload! StringIO.new(env_php), "#{current_path}/config/env.php"
-      execute "chmod 644 #{current_path}/config/env.php"
-
       # TODO: fix it use Yii2 assets
       execute "chmod -R 777 #{current_path}/web/assets_app"
 
@@ -42,6 +33,5 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:app_setup'
-  after :finishing, 'deploy:cleanup'
 
 end
