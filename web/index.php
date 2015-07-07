@@ -1,14 +1,12 @@
 <?php
-// load env variables helper
-require_once(dirname(__FILE__).'/../helpers/Env.php');
-\app\helpers\Env::load();
-
 // comment out the following two lines when deployed to production
-defined('YII_DEBUG') or define('YII_DEBUG',  \app\helpers\Env::get('yii_debug'));
-defined('YII_ENV') or define('YII_ENV',  \app\helpers\Env::get('yii_env'));
-
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
 
 require(__DIR__ . '/../vendor/autoload.php');
+
+(new Dotenv\Dotenv(__DIR__.'/../'))->load();
+
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 $config = require(__DIR__ . '/../config/web.php');

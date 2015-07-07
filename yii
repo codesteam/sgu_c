@@ -8,10 +8,6 @@
  * @license http://www.yiiframework.com/license/
  */
 
-// load env variables helper
-require_once(dirname(__FILE__).'/helpers/Env.php');
-\app\helpers\Env::load();
-
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 
 // fcgi doesn't have STDIN and STDOUT defined by default
@@ -19,6 +15,9 @@ defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
 require(__DIR__ . '/vendor/autoload.php');
+
+(new Dotenv\Dotenv(__DIR__))->load();
+
 require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
 
 $config = require(__DIR__ . '/config/console.php');
