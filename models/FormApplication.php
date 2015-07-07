@@ -94,6 +94,7 @@ class FormApplication extends Model
         $application              = new Application();
         $application->comment     = $this->comment;
         $application->category_id = $this->category_id;
+        $application->hash        = Yii::$app->getSecurity()->generateRandomString(32);
         $result = $application->save();
         if (!$result) {
             return false;
