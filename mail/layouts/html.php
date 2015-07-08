@@ -1,9 +1,7 @@
 <?php
 use yii\helpers\Html;
-
-/* @var $this \yii\web\View view component instance */
-/* @var $message \yii\mail\MessageInterface the message being composed */
-/* @var $content string main view render result */
+use yii\helpers\Url;
+require '_css.php';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -13,9 +11,56 @@ use yii\helpers\Html;
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body style="<?=$styleBody?>">
     <?php $this->beginBody() ?>
-    <?= $content ?>
+
+    <table style="<?=$styleContainer?>">
+        <tbody>
+            <tr>
+                <td style="background-color:#eee">
+                    <table style="padding:30px;width:740px;" cellspacing="0" align="center">
+                        <tr>
+                            <td style="background-color:white;padding:10px 15px 10px 15px;width:640px;">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            ПНРОИТ 2015
+                                        </td>
+                                        <td style="text-align:right">
+                                            <span style="margin-top:20px">
+                                                <a href="<?=Url::to('/', 1);?>"        style="<?=$styleLink?>;padding-right:15px;">Главная</a> 
+                                                <a href="<?=Url::to('/contact', 1);?>" style="<?=$styleLink?>;border-left:2px solid #eee;padding-right:15px;padding-left:15px;">Контакты</a> 
+                                                <a href="<?=Url::to('/info', 1);?>"    style="<?=$styleLink?>;border-left:2px solid #eee;padding-left:15px;">Информация</a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:white;border-top:1px solid #eee">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:white;padding:10px 15px 10px 15px;width:640px;">
+                                <? echo $content; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:white;border-top:1px solid #eee">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:white;padding:0px 15px 15px 15px;color:#888888">
+                                <p style="font-size:12px;margin: 0;">
+                                    С уважением, команда <a href="<?=Url::to('/', 1);?>" style="<?=$styleLink?>"><?=Url::to('/', 1);?></a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
     <?php $this->endBody() ?>
 </body>
 </html>

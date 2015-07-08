@@ -138,6 +138,13 @@ class FormApplication extends Model
             $this->attach->saveAs(Yii::getAlias('@webroot').'/uploads/'.$applicationFile->name);
         }
 
+        // notify user
+        Yii::$app->mailer->compose('application/created', [])
+            ->setFrom($_ENV['MAILER_FROM'])
+            ->setTo($this->email)
+            ->setSubject('Заявка на участие в конференции')
+            ->send();
+
         return true;
     }
 
