@@ -17,7 +17,6 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<!-- <body data-spy="scroll" data-target="#myScrollspy"> -->
 <body <?=!empty($this->params['pageScrollSpy']) ? 'data-spy="scroll" data-target="#'.$this->params['pageScrollSpy'].'"' : ''?>>
 
 <?php $this->beginBody() ?>
