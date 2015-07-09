@@ -51,6 +51,7 @@ require '_css.php';
                         <tr>
                             <td style="background-color:white;padding:0px 15px 15px 15px;color:#888888">
                                 <p style="font-size:12px;margin: 0;">
+                                    Данное письмо отправлено роботом и отвечать на него не нужно.<br/>
                                     С уважением, команда <a href="<?=Url::to('/', 1);?>" style="<?=$styleLink?>"><?=Url::to('/', 1);?></a>
                                 </p>
                             </td>
