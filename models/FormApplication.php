@@ -139,7 +139,7 @@ class FormApplication extends Model
         }
 
         // notify user
-        Yii::$app->mailer->compose('application/created', [])
+        Yii::$app->mailer->compose('application/created', ['application' => $application])
             ->setFrom($_ENV['MAILER_FROM'])
             ->setTo($this->email)
             ->setSubject('Заявка на участие в конференции')

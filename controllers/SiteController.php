@@ -9,6 +9,7 @@ use app\models\FormLogin;
 use app\models\FormContact;
 use app\models\FormApplication;
 use app\models\Category;
+use app\models\Application;
 
 class SiteController extends Base
 {
@@ -64,16 +65,13 @@ class SiteController extends Base
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+            return $this->render('login', ['model' => $model]);
         }
     }
 
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 
@@ -84,9 +82,7 @@ class SiteController extends Base
             Yii::$app->session->setFlash('contactFormSubmitted');
             return $this->refresh();
         } else {
-            return $this->render('feedback', [
-                'model' => $model,
-            ]);
+            return $this->render('feedback', ['model' => $model]);
         }
     }
 
@@ -102,6 +98,15 @@ class SiteController extends Base
         }
     }
 
+    public function actionApplicationView($id, $hash)
+    {
+        $application = Application::find()->where(['id' => $id, 'hash' => $hash])->one();
+        if (!$application) {
+            return $this->pageNotFound();
+        }
+        return $this->render('application_view', ['application' => $application]);
+    }
+
     public function actionPage($view)
     {
         $map = [
@@ -109,7 +114,7 @@ class SiteController extends Base
             'info'    => '/static/info',
         ];
         if (!isset($map[$view])) {
-            throw new HttpException(404);
+            return $this->pageNotFound();
         }
         Yii::$app->view->params['pageScrollSpy'] = 'infoScrollSpy';
         return $this->render($map[$view]);
