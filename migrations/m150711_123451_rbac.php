@@ -1,5 +1,6 @@
 <?php
 
+use yii\base\InvalidConfigException;
 use yii\db\Schema;
 use yii\db\Migration;
 
