@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use app\models\FormLogin;
 use app\models\FormContact;
 use app\models\FormApplication;
+use app\models\FormApplicationMessage;
 use app\models\Category;
 use app\models\Application;
 
@@ -100,11 +101,17 @@ class SiteController extends Base
 
     public function actionApplicationView($id, $hash)
     {
+        $model = new FormApplicationMessage();
         $application = Application::find()->where(['id' => $id, 'hash' => $hash])->one();
         if (!$application) {
             return $this->pageNotFound();
         }
-        return $this->render('application_view', ['application' => $application]);
+        if ($model->load(Yii::$app->request->post()) && $model->create($application)) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+            return $this->refresh();
+        } else {
+            return $this->render('application_view', ['application' => $application, 'model' => $model]);
+        }
     }
 
     public function actionPage($view)

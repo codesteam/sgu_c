@@ -29,4 +29,9 @@ class Application extends ActiveRecord
     {
         return $this->hasMany(ApplicationFile::className(), array('application_id' => 'id'));
     }
+
+    public function getApplicationMessages()
+    {
+        return $this->hasMany(ApplicationMessage::className(), array('application_id' => 'id'));
+    }
 }

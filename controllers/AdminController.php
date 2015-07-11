@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
+use app\models\FormAdminApplicationMessage;
 use app\models\Application;
 use app\models\Ticket;
 
@@ -42,13 +43,17 @@ class AdminController extends Base
 
     public function actionApplication($id)
     {
+        $model       = new FormAdminApplicationMessage();
+        $application = Application::findOne($id);
         if (!Yii::$app->user->can('application_listing')) {
             return $this->accessDenied();
         }
-        $data = [
-            'application' => Application::findOne($id),
-        ];
-        return $this->render('application', $data);
+        if ($model->load(Yii::$app->request->post()) && $model->create($application)) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+            return $this->refresh();
+        } else {
+            return $this->render('application', ['application' => $application, 'model' => $model]);
+        }
     }
 
     public function actionApplicationSetStatus($id)

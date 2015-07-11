@@ -27,7 +27,33 @@ class FormApplication extends Model
     public $members_count;
 
     /**
-     * @return array the validation rules.
+     * Customized attribute labels
+     *
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return [
+            'name'          => Yii::t('application', 'Fullname'),
+            'report'        => Yii::t('application', 'Report'),
+            'email'         => Yii::t('application', 'Email'),
+            'comment'       => Yii::t('application', 'Comment'),
+            'attach'        => Yii::t('application', 'Attach'),
+            'captcha'       => Yii::t('application', 'Captcha'),
+            'category_id'   => Yii::t('application', 'Category_id'),
+            'members_count' => Yii::t('application', 'Members count'),
+            'location'      => Yii::t('application', 'Location'),
+            'profession'    => Yii::t('application', 'Profession'),
+            'rank'          => Yii::t('application', 'Rank'),
+            'post_address'  => Yii::t('application', 'Post address'),
+            'phone'         => Yii::t('application', 'Phone'),
+        ];
+    }
+
+    /**
+     * Validation rules
+     *
+     * @return array
      */
     public function rules()
     {
@@ -41,6 +67,13 @@ class FormApplication extends Model
         ];
     }
 
+    /**
+     * Members validation
+     *
+     * @param string $attribute attribute for validation
+     *
+     * @return void
+     */
     public function checkMembers($attribute)
     {
         if (!empty($this->$attribute)) {
@@ -58,31 +91,12 @@ class FormApplication extends Model
     }
 
     /**
-     * @return array customized attribute labels
-     */
-    public function attributeLabels()
-    {
-        return [
-            'name'          => 'ФИО',
-            'report'        => 'Участие с докладом',
-            'email'         => 'Email',
-            'comment'       => 'Комментарий',
-            'attach'        => 'Файл тезисов доклада',
-            'captcha'       => 'Код проверки',
-            'category_id'   => 'Научное направление',
-            'members_count' => 'Количество авторов',
-            'location'      => 'Страна, город',
-            'profession'    => 'Место работы (полностью)',
-            'rank'          => 'Должность, степень, звание',
-            'post_address'  => 'Почтовый адрес (для переписки)',
-            'phone'         => 'Контактные телефоны, факс',
-        ];
-    }
-
-    /**
+     * Create application with all needed relations
      *
      * @TODO check copy result
      * @TODO add DB transaction
+     *
+     * @return bool
      */
     public function create()
     {
@@ -142,18 +156,19 @@ class FormApplication extends Model
         Yii::$app->mailer->compose('application/created', ['application' => $application])
             ->setFrom($_ENV['MAILER_FROM'])
             ->setTo($this->email)
-            ->setSubject('Заявка на участие в конференции')
+            ->setSubject(Yii::t('mailer', 'Conference application'))
             ->send();
 
         return true;
     }
 
     /**
+     * Return data for members selector
+     *
      * @return array
      */
     public function membersCountSelector()
     {
         return array_combine(range(1, 7), range(1, 7));
     }
-
 }
