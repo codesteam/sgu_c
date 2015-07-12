@@ -10,10 +10,11 @@ use yii\console\Controller;
 class DevController extends Controller
 {
     /**
-     * This command echoes what you have entered as the message.
-     * @param string $message the message to be echoed.
+     * Generate RBAC data
+     *
+     * @return void
      */
-    public function actionAuthRules($message = 'hello world')
+    public function actionAuthRules()
     {
         $auth = Yii::$app->authManager;
         $auth->removeAll();

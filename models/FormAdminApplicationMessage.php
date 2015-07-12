@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\db\Expression;
+use app\helpers\Mailer;
 
 /**
  * Application message validation form
@@ -50,11 +51,19 @@ class FormAdminApplicationMessage extends Model
             return false;
         }
 
-        $record                 = new ApplicationMessage();
-        $record->application_id = $application->id;
-        $record->body           = $this->body;
-        $record->sender         = ApplicationMessage::SENDER_ADMIN;
-        $record->created_at     = new Expression('NOW()');
-        return (bool)$record->save();
+        // create application message
+        $message                 = new ApplicationMessage();
+        $message->application_id = $application->id;
+        $message->body           = $this->body;
+        $message->sender         = ApplicationMessage::SENDER_ADMIN;
+        $message->created_at     = new Expression('NOW()');
+        if (!$message->save()) {
+            return false;
+        }
+
+        // notify user
+        Mailer::applicationMessageFromAdmin($message);
+
+        return true;
     }
 }

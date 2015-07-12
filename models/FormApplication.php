@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\web\UploadedFile;
+use app\helpers\Mailer;
 
 /**
  * Application create form
@@ -153,11 +154,7 @@ class FormApplication extends Model
         }
 
         // notify user
-        Yii::$app->mailer->compose('application/created', ['application' => $application])
-            ->setFrom($_ENV['MAILER_FROM'])
-            ->setTo($this->email)
-            ->setSubject(Yii::t('mailer', 'Conference application'))
-            ->send();
+        Mailer::applicationCreated($application);
 
         return true;
     }

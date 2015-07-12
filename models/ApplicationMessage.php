@@ -13,4 +13,9 @@ class ApplicationMessage extends ActiveRecord
     {
         return '{{%application_message}}';
     }
+
+    public function getApplication()
+    {
+        return $this->hasOne(Application::className(), array('id' => 'application_id'));
+    }
 }
