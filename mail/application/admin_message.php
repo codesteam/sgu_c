@@ -10,7 +10,7 @@ $urlApplication = Url::to(['/site/application-view', 'id' => $message->applicati
 <h1 style="<?=$styleH1?>"><?= $this->title ?></h1>
 
 <p style="<?=$styleP?>">
-    Вам отправлено новое сообщений на сайте
+    Вам отправлено новое сообщение на сайте
     <a href="<?=$urlRoot?>" style="<?=$styleLink?>"><?=$urlRoot?></a>.
 </p>
 <p style="<?=$styleP?>">

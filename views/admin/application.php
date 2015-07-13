@@ -13,6 +13,26 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_menu', ['active' => 'applications']) ?>
     <div class="row">
         <div class="col-lg-8">
+            <? if ($application->status == Application::STATUS_DRAFT) :?>
+                <div class="pull-right">
+                    <?=Html::a(
+                        'Принять заявку',
+                        ['/admin/application-set-status/', 'id' => $application->id, 'status' => Application::STATUS_APPROVED],
+                        [
+                            'class' => 'btn btn-sm btn-success',
+                            'data'  => ['confirm' => 'Вы действительно хотите это сделать?']
+                        ]
+                    )?>
+                    <?=Html::a(
+                        'Отклонить заявку',
+                        ['/admin/application-set-status/', 'id' => $application->id, 'status' => Application::STATUS_DECLINED],
+                        [
+                            'class' => 'btn btn-sm btn-danger',
+                            'data'  => ['confirm' => 'Вы действительно хотите это сделать?']
+                        ]
+                    )?>
+                </div>
+            <? endif ?>
             <h4><?= Html::encode($this->title) ?></h4>
             <br/>
             <table class="table table-striped">
@@ -25,26 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </tr>
                     <tr>
                         <td>Статус</td>
-                        <td>
-                            <?php $form = ActiveForm::begin([
-                                'action' => ['/admin/application-set-status', 'id' => $application->id],
-                                'method' => 'post',
-                                'layout' => 'inline'
-                            ]); ?>
-                                <div class="form-group">
-                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                                    <? 
-                                        $statusesList = [
-                                            Application::STATUS_DRAFT    => 'Черновик',
-                                            Application::STATUS_APPROVED => 'Завершено',
-                                            Application::STATUS_DECLINED => 'Отклонено',
-                                        ];
-                                    ?>
-                                    <?=$form->field($application, 'status')->dropDownList($statusesList, ['class' => 'form-control input-sm']) ?>
-                                </div>
-                                <button type="submit" class="btn btn-sm btn-info">Сохранить</button>
-                            <?php ActiveForm::end(); ?>
-                        </td>
+                        <td><?=HtmlApplication::status($application->status)?></td>
                     </tr>
                     <tr>
                         <td>Комментарий</td><td><?=Html::encode($application->comment)?></td>

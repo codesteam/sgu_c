@@ -18,6 +18,15 @@ class Mailer
             ->send();
     }
 
+    public static function applicationModerated($application)
+    {
+        Yii::$app->mailer->compose('application/moderated', ['application' => $application])
+            ->setFrom($_ENV['MAILER_FROM'])
+            ->setTo($application->commonMember->email)
+            ->setSubject(Yii::t('mailer', 'Application moderation'))
+            ->send();
+    }
+
     public static function applicationMessageFromAdmin($message)
     {
         Yii::$app->mailer->compose('application/admin_message', ['message' => $message])

@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use app\models\FormAdminApplicationMessage;
 use app\models\Application;
 use app\models\Ticket;
+use app\helpers\Mailer;
 
 class AdminController extends Base
 {
@@ -56,16 +57,17 @@ class AdminController extends Base
         }
     }
 
-    public function actionApplicationSetStatus($id)
+    public function actionApplicationSetStatus($id, $status)
     {
         if (!Yii::$app->user->can('application_set_status')) {
             return $this->accessDenied();
         }
         $application = Application::findOne($id);
         if ($application) {
-            $application->status = Yii::$app->request->post('Application')['status'];
+            $application->status = $status;
             $application->save();
         }
+        Mailer::applicationModerated($application);
         return $this->redirect(['/admin/application', 'id' => $id], 302);
     }
 
