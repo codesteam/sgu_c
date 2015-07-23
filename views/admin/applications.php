@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         Эта страница предназначена для управления и редактирования списка заявок для участия в конференции.
     </p>
-    <table class="table">
+    <table class="table" id="admin_applications" ng-data-table="">
         <thead>
             <tr>
                 <th>#</th>
