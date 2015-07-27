@@ -5,3 +5,8 @@ angular.module('SgucApp').directive 'ngDataTable', ->
       iDisplayLength: 50,
       language: 
         url: '/assets_app/js/jquery.datatables-ru.json'
+      order:
+        [ 0, "desc" ]
+      columnDefs: [
+        { orderable: false, targets: [-1, -2] }
+      ]

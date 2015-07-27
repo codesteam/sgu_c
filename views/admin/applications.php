@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <table class="table" id="admin_applications" ng-data-table="">
         <thead>
-            <tr>
+            <tr class="table-filters">
                 <th>#</th>
                 <th>Научное направление</th>
                 <th>Участников</th>
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <tbody>
             <? foreach ($applications as $application) :?>
                 <tr>
-                    <th scope="row"><?=$application->id?></th>
+                    <td><?=$application->id?></td>
                     <td><?=$application->category->name?></td>
                     <td><?=count($application->applicationMembers)?></td>
                     <td><?=Html::encode($application->applicationMembers[0]->name)?></td>
