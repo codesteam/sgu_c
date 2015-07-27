@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
         'assets_app/js/jquery.datatables.js',
         'assets_app/js/app/app.coffee',
         'assets_app/js/app/controllers/site-application.coffee',
+        'assets_app/js/app/controllers/admin-applications.coffee',
         'assets_app/js/app/directives.coffee',
     ];
     public $depends = [

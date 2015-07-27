@@ -5,12 +5,12 @@ use app\helpers\HtmlApplication;
 $this->title = 'Список заявок на участие';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-index">
+<div class="site-index" ng-controller="AdminApplicationsCtrl">
     <?= $this->render('_menu', ['active' => 'applications']) ?>
     <p>
         Эта страница предназначена для управления и редактирования списка заявок для участия в конференции.
     </p>
-    <table class="table" id="admin_applications" ng-data-table="">
+    <table class="table" id="admin_applications" ng-data-table="" ng-col-filters="filters">
         <thead>
             <tr class="table-filters">
                 <th>#</th>
