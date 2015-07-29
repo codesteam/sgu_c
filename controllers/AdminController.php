@@ -57,17 +57,16 @@ class AdminController extends Base
         }
     }
 
-    public function actionApplicationSetStatus($id, $status)
+    public function actionApplicationSetStatus($id)
     {
         if (!Yii::$app->user->can('application_set_status')) {
             return $this->accessDenied();
         }
-        $application = Application::findOne($id);
-        if ($application) {
-            $application->status = $status;
-            $application->save();
+        $model = new FormAdminApplicationModeration();
+        if ($model->load(Yii::$app->request->post()) && $model->moderate($application)) {
+            Mailer::applicationModerated($application);
+            // TODO add flash message here
         }
-        Mailer::applicationModerated($application);
         return $this->redirect(['/admin/application', 'id' => $id], 302);
     }
 
