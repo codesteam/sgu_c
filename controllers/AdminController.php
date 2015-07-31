@@ -48,6 +48,8 @@ class AdminController extends Base
     {
         $model       = new FormAdminApplicationMessage();
         $application = Application::findOne($id);
+        $application -> messages_views_count = $application -> messages_count;
+        $application -> save();
         if (!Yii::$app->user->can('application_listing')) {
             return $this->accessDenied();
         }
