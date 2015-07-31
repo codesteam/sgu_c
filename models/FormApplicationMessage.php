@@ -55,8 +55,8 @@ class FormApplicationMessage extends Model
         $record->body           = $this->body;
         $record->sender         = ApplicationMessage::SENDER_USER;
         $record->created_at     = new Expression('NOW()');
-        $application -> messages_count ++;
-        $application -> save();
+        $application->messages_count ++;
+        $application->save(true, ['messages_count']);
         return (bool)$record->save();
     }
 }
