@@ -38,6 +38,8 @@ class AdminController extends Base
         }
         $data = [
             'applications' => Application::find()->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
+            'count_messages' => Application::getCountMessages(),
+            'ids' => Application::getNotViewApplications(),
         ];
         return $this->render('applications', $data);
     }

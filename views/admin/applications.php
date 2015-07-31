@@ -10,6 +10,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         Эта страница предназначена для управления и редактирования списка заявок для участия в конференции.
     </p>
+    <div class="label label-danger">
+        <?=$count_messages?> сообщение(й)
+    </div>
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Внимание! У вас есть непрочитанные сообщения по заявкам!
+        <? foreach($ids as $id) {echo '#',$id,' ';} ?>
+    </div>
     <table class="table" id="admin_applications" ng-data-table="" ng-col-filters="filters">
         <thead>
             <tr class="table-filters">
