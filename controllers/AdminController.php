@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use app\models\FormAdminApplicationMessage;
 use app\models\Application;
+use app\models\ApplicationMessage;
 use app\models\Ticket;
 use app\helpers\Mailer;
 
@@ -48,8 +49,9 @@ class AdminController extends Base
     {
         $model       = new FormAdminApplicationMessage();
         $application = Application::findOne($id);
-        $application->messages_views_count = $application->messages_count;
-        $application->save(true, ['messages_views_count']);
+        $application->messages_count       = ApplicationMessage::find()->where('application_id=:id', [':id' => $application->id])->andWhere('sender=:user',[':user' => 'user'])->count();
+        $application->messages_views_count = ApplicationMessage::find()->where('application_id=:id', [':id' => $application->id])->andWhere('sender=:user',[':user' => 'user'])->count();
+        $application->save(true, ['messages_views_count', 'messages_count']);
         if (!Yii::$app->user->can('application_listing')) {
             return $this->accessDenied();
         }

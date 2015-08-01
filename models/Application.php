@@ -45,11 +45,12 @@ class Application extends ActiveRecord
         return self::find()->select('sum(messages_count-messages_views_count)')->scalar();
     }
 
+    public static function getNotViewApplications()
+    {
+        return self::find()->select('id')->where('messages_count>messages_views_count')->limit(3)->column();
+    }
+
     /**
      * @return static
      */
-    public static function getNotViewApplications()
-    {
-         return self::find()->select('id')->where('messages_count>messages_views_count')->limit(3)->column();
-    }
 }
