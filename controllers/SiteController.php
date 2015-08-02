@@ -53,6 +53,7 @@ class SiteController extends Base
     public function actionIndex()
     {
         Yii::$app->view->params['pageWrap'] = true;
+        Yii::$app->view->params['pageHideNavbar'] = true;
         return $this->render('index');
     }
 
