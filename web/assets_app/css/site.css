@@ -156,6 +156,44 @@ a.desc:after {
 .header-main .main-info .main-info-actions .btn{
     width:270px;
 }
+.menu-main {
+    padding-top: 100px;
+    background: #232a31 url("/assets_app/images/main-background.png") no-repeat scroll 0 0 / cover ;
+    height:210px;margin-top: -70px
+}
+.menu-main-logo {
+    color:white;
+}
+.menu-main-logo .main-logo-img{
+    margin-right:14px;
+}
+.menu-main-logo .main-logo-title{
+    font-size:26px;font-family:OpenSansCondensedLight;
+}
+.menu-main-logo .main-logo-title .part-1{
+    margin-top:16px;
+}
+.menu-main-logo .main-logo-title .part-2{
+    margin-top:-14px;
+}
+.menu-main .navigation{
+    margin-top:22px;
+}
+.menu-main .navigation a:hover {
+    color: #05cbed;
+}
+.subheader-main {
+    background-color:#e8eef4;
+}
+.subheader-main .container{
+    padding-top:28px;padding-bottom:20px;
+}
+.subheader-main .container .actions .btn{
+    margin-left: 20px;
+}
+
+
+
 .main-categories {
     background-color:#e8eef4;
 }
@@ -227,8 +265,18 @@ a:hover {color: #05cbed;}
 }
 .btn-info-filled:hover {
     border: 1px solid #00acc5;
-    background-color:#00acc5;
+    background:#00acc5;
     color: white;
+}
+.btn-info-full {
+    border: 1px solid #00acc5;
+    background-color: #00acc5;
+    color: white;
+}
+.btn-info-full:hover {
+    border: 1px solid #00acc5;
+    background:none;
+    color: #00acc5;
 }
 .btn-success-filled {
     border: 1px solid #99d624;
@@ -240,24 +288,33 @@ a:hover {color: #05cbed;}
     background-color: #99d624;
     color: white;
 }
+.btn-success-full {
+    border: 1px solid #99d624;
+    background-color: #99d624;
+    color: white;
+}
+.btn-success-full:hover {
+    border: 1px solid #99d624;
+    background:none;
+    color: #99d624;
+}
 .bs-docs-sidebar  { margin-top: 25px}
     .bs-docs-sidebar  li > a {
     display: block;
     font-weight: 500;
     padding: 4px 20px;
+    border-left: 1px solid #a4bcd5;
 }
 .bs-docs-sidebar  li > a:focus, .bs-docs-sidebar  li > a:hover {
     background-color: transparent;
-    border-left: 1px solid #563d7c;
-    padding-left: 19px;
     text-decoration: none;
+    color:#99D624;
 }
 .bs-docs-sidebar  .active:focus > a, .bs-docs-sidebar  .active:hover > a, 
 .bs-docs-sidebar  .active > a {
     background-color: transparent;
-    border-left: 2px solid #563d7c;
     font-weight: 700;
-    padding-left: 18px;
+    color:#99D624;
 }
 
 

@@ -23,30 +23,48 @@ AppAsset::register($this);
     <? if (empty($this->params['pageWrap'])) :?>
         <div class="wrap">
     <? endif ?>
-        <? if (empty($this->params['pageHideNavbar'])) :?>
-            <?php
-                NavBar::begin([
-                    'brandLabel' => '<img alt="logo" src="/assets_app/images/brand_conf.png">',
-                    'brandUrl' => Yii::$app->homeUrl,
-                    'options' => [
-                        'class' => 'navbar-inverse',
-                    ],
-                ]);
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav navbar-right'],
-                    'items' => [
-                        ['label' => 'Главная', 'url' => ['/'], 'linkOptions' => ['class' => 'hidden-sm']],
-                        ['label' => 'Информация о конференции', 'url' => ['/info']],
-                        ['label' => 'Контакты', 'url' => ['/contact'], 'linkOptions' => ['class' => 'hidden-sm']],
-                        Yii::$app->user->isGuest ?
-                            ['label' => 'Подать заявку', 'url' => ['/site/application'], 'linkOptions' => ['class' => 'btn btn-success']] :
-                            ['label' => 'Выйти (' . Yii::$app->user->identity->username . ')',
-                                'url' => ['/site/logout'],
-                                'linkOptions' => ['data-method' => 'post']],
-                    ],
-                ]);
-                NavBar::end();
-            ?>
+    <? if (empty($this->params['pageHideNavbar'])) :?>
+        <div class="site-index">
+            <div class="menu-main hidden-xs hidden-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="menu-main-logo">
+                                <div class="pull-left main-logo-img">
+                                    <a href="/">
+                                        <img src="/assets_app/images/logo-medium.png" />
+                                    </a>
+                                </div>
+                                <div class="pull-left text-left main-logo-title">
+                                    <div class="part-1">Перспективные направления развития</div>
+                                    <div class="part-2">отечественных информационных технологий</div>
+                                </div>
+                            </div>
+                            <div class="navigation" >
+                                <?= Html::a('Контакты', ['/contact'], ['class' => 'btn pull-right']) ?>
+                                <?= Html::a('Информация о конференции', ['/info'], ['class' => 'btn btn-success pull-right']) ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subheader-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        Межрегиональная научно-практическая конференция<br/>
+                        23-25 сентября 2015
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pull-right actions">
+                            <?= Html::a('Cвязаться с нами', ['/site/feedback'], ['class' => 'btn btn-success-full pull-right']) ?>
+                            <?= Html::a('Подать заявку на участие', ['/site/application'], ['class' => 'btn btn-info-full pull-right']) ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <? endif ?>
 
     <? if (empty($this->params['pageWrap'])) :?>

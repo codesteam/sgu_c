@@ -5,8 +5,13 @@ $this->title = 'Информация о конференции';
 ?>
 <div class="site-login">
     <div class="row">
+        <div class="col-md-12">
+            <br />
+            <div class="text-center">
+                <h1 class="h2-centered"><span class="text text-default"><?= Html::encode($this->title) ?></span></h1>
+            </div>
+        </div>
         <div class="col-md-9">
-            <h1><?= Html::encode($this->title) ?></h1>
             <h2 id="l-founders">Учредители конференции</h2>
             <hr/>
             <ul>
