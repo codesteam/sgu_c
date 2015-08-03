@@ -188,6 +188,11 @@ a.desc:after {
 .subheader-main .container{
     padding-top:28px;padding-bottom:20px;
 }
+.subheader-main .container .text{
+    color: #00acc5;
+    font-size: 16px;
+    font-weight: bold;
+}
 .subheader-main .container .actions .btn{
     margin-left: 20px;
 }

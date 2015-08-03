@@ -52,7 +52,7 @@ AppAsset::register($this);
         <div class="subheader-main">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 text">
                         Межрегиональная научно-практическая конференция<br/>
                         23-25 сентября 2015
                     </div>
@@ -65,6 +65,17 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
+        <?php
+            // TODO: remove it. It fix scroll plugin
+            NavBar::begin([
+                'options' => [
+                    'class' => 'navbar-inverse',
+                    'style' => 'display:none',
+                ],
+            ]);
+            
+            NavBar::end();
+        ?>
     <? endif ?>
 
     <? if (empty($this->params['pageWrap'])) :?>
