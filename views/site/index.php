@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use app\helpers\HtmlApplication;
 
 $this->title = 'Межрегиональная научно-практическая конференция Перспективные направления развития
  отечественных информационных технологий';
@@ -68,9 +69,7 @@ $this->title = 'Межрегиональная научно-практическ
             <div class="body-content">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="text-center">
-                            <h2 class="h2-centered"><span class="text text-info">Тематические направления<span></h2>
-                        </div>
+                        <?=HtmlApplication::h2('Тематические направления', 'text-info')?>
                         <div class="row categories-text">
                             <div class="col-md-6">
                                 <ul>
@@ -107,9 +106,7 @@ $this->title = 'Межрегиональная научно-практическ
             <div class="body-content">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="text-center">
-                            <h2 class="h2-centered"><span class="text text-default">Важные даты</span></h2>
-                        </div>
+                        <?=HtmlApplication::h2('Важные даты', 'text-default')?>
                         <br/>
                         <img src="/assets_app/images/main-dates.png" class="img-responsive" />
                         <!-- <table class="table text-left">

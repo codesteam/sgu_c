@@ -27,4 +27,22 @@ class HtmlApplication
             return '<span class="label label-danger">Нет</span>';
         }
     }
+
+    public static function h1($title, $class = 'text-default')
+    {
+        return '
+            <div class="text-center">
+                <h1 class="h-centered"><span class="text '.$class.'">'.$title.'<span></h2>
+            </div>
+        ';
+    }
+
+    public static function h2($title, $class = 'text-default')
+    {
+        return '
+            <div class="text-center">
+                <h2 class="h-centered"><span class="text '.$class.'">'.$title.'<span></h2>
+            </div>
+        ';
+    }
 }

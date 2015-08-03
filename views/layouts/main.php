@@ -81,6 +81,7 @@ AppAsset::register($this);
     <? if (empty($this->params['pageWrap'])) :?>
         <div class="container">
     <? endif ?>
+            <br/>
             <?= Breadcrumbs::widget([
                 'links'    => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 'homeLink' => ['label' => 'Панель администратора','url' => '/admin/']

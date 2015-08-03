@@ -223,10 +223,10 @@ h1, h2, h3, h4 {
     color:#3c79a9;
     font-family: OpenSansLight;
 }
-.h2-centered {font-size:40px;border-bottom: 1px solid #a4bcd5;line-height: 0.1em; margin-bottom: 30px;}
-.h2-centered .text {padding-right: 10px; padding-left: 10px; }
-.h2-centered .text-default {background-color: white; }
-.h2-centered .text-info {background-color: #e8eef4; }
+.h-centered {font-size:40px;border-bottom: 1px solid #a4bcd5;line-height: 0.1em; margin-bottom: 30px;}
+.h-centered .text {padding-right: 10px; padding-left: 10px; }
+.h-centered .text-default {background-color: white; }
+.h-centered .text-info {background-color: #e8eef4; }
 a {color: #05cbed;}
 a:hover {color: #05cbed;}
 .navbar .nav > li > a {
