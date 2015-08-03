@@ -158,7 +158,7 @@ a.desc:after {
 }
 .menu-main {
     padding-top: 100px;
-    background: #232a31 url("/assets_app/images/main-background.png") no-repeat scroll 0 0 / cover ;
+    background: #232a31 url("/assets_app/images/main-menu-background.png") no-repeat scroll 0 0 / cover ;
     height:210px;margin-top: -70px
 }
 .menu-main-logo {

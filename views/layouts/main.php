@@ -25,7 +25,7 @@ AppAsset::register($this);
     <? endif ?>
     <? if (empty($this->params['pageHideNavbar'])) :?>
         <div class="site-index">
-            <div class="menu-main hidden-xs hidden-sm">
+            <div class="menu-main">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
