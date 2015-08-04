@@ -3,11 +3,12 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 use yii\helpers\ArrayHelper;
+use app\helpers\HtmlApplication;
 
 $this->title = 'Заявка на участие';
 ?>
 <div class="site-contact" ng-controller="SiteApplicationCtrl">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <?=HtmlApplication::h1(Html::encode($this->title))?>
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
         <div class="alert alert-success">
@@ -106,7 +107,7 @@ $this->title = 'Заявка на участие';
                     ]) ?>
                     <div class="form-group ">
                         <div class="col-sm-offset-3 col-sm-6">
-                            <?= Html::submitButton('Отправить', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>
+                            <?= Html::submitButton('Отправить', ['class' => 'btn btn-info-full', 'name' => 'contact-button']) ?>
                         </div>
                     </div>
                 <?php ActiveForm::end(); ?>

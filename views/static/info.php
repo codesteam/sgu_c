@@ -1,12 +1,16 @@
 <?php
 use yii\helpers\Html;
+use app\helpers\HtmlApplication;
 
 $this->title = 'Информация о конференции';
 ?>
 <div class="site-login">
     <div class="row">
+        <div class="col-md-12">
+            <br />
+            <?=HtmlApplication::h1(Html::encode($this->title))?>
+        </div>
         <div class="col-md-9">
-            <h1><?= Html::encode($this->title) ?></h1>
             <h2 id="l-founders">Учредители конференции</h2>
             <hr/>
             <ul>
@@ -220,4 +224,13 @@ $this->title = 'Информация о конференции';
             </div>
         </div>
     </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </div>
