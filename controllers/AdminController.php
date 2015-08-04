@@ -38,9 +38,9 @@ class AdminController extends Base
             return $this->accessDenied();
         }
         $data = [
-            'applications' => Application::find()->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
-            'count_messages' => Application::getCountMessages(),
-            'ids' => Application::getNotViewApplications(),
+            'applications'            => Application::find()->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
+            'newMessages'             => Application::getCountNewMessages(),
+            'newMessagesApplications' => Application::getApplicationIdsWithNewMessages(),
         ];
         return $this->render('applications', $data);
     }

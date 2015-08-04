@@ -7,20 +7,14 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index" ng-controller="AdminApplicationsCtrl">
     <?= $this->render('_menu', ['active' => 'applications']) ?>
-    <p>
-        Эта страница предназначена для управления и редактирования списка заявок для участия в конференции.
-    </p>
-    <?if ($count_messages):?>
-        <div class="label label-danger">
-            <?=$count_messages?> сообщение(й)
-        </div>
-    <?endif;?>
-    <?if ($count_messages):?>
+    <?if ($newMessages):?>
         <div class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>
-            Внимание! У вас есть непрочитанные сообщения по заявкам!
-            <? foreach($ids as $id) {echo '#',$id,' ';} ?>
+            Внимание! У вас <?=$newMessages?> непрочитанных сообщение(й) по заявкам!
+            <? foreach ($newMessagesApplications as $applicationId) :?>
+                <?= Html::a("#$applicationId", ['admin/application', 'id' => $applicationId]) ?>
+            <? endforeach ?>
         </div>
     <?endif;?>
     <table class="table" id="admin_applications" ng-data-table="" ng-col-filters="filters">

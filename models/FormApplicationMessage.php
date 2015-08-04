@@ -50,13 +50,16 @@ class FormApplicationMessage extends Model
             return false;
         }
 
+        // save message
         $record                 = new ApplicationMessage();
         $record->application_id = $application->id;
         $record->body           = $this->body;
         $record->sender         = ApplicationMessage::SENDER_USER;
         $record->created_at     = new Expression('NOW()');
-        $application->messages_count = ApplicationMessage::find()->where('application_id=:id', [':id' => $application->id])->andWhere('sender=:user',[':user' => 'user'])->count();
-        $application->save(true, ['messages_count']);
+
+        // update application total messages count
+        $application->updateMessagesCount();
+
         return (bool)$record->save();
     }
 }

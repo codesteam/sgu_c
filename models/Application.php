@@ -40,17 +40,19 @@ class Application extends ActiveRecord
         return $this->hasMany(ApplicationMessage::className(), array('application_id' => 'id'));
     }
 
-    public static function getCountMessages()
+    public static function getCountNewMessages()
     {
         return self::find()->select('sum(messages_count-messages_views_count)')->scalar();
     }
 
-    public static function getNotViewApplications()
+    public static function getApplicationIdsWithNewMessages()
     {
-        return self::find()->select('id')->where('messages_count>messages_views_count')->limit(3)->column();
+        return self::find()->select('id')->where('messages_count > messages_views_count')->limit(5)->column();
     }
 
-    /**
-     * @return static
-     */
+    public function updateMessagesCount()
+    {
+        $this->messages_count = count($this->applicationMessages);
+        $this->save(true, ['messages_count']);
+    }
 }
