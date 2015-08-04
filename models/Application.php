@@ -55,4 +55,10 @@ class Application extends ActiveRecord
         $this->messages_count = count($this->applicationMessages);
         $this->save(true, ['messages_count']);
     }
+
+    public function updateMessagesViewsCount()
+    {
+        $this->messages_views_count = count($this->applicationMessages);
+        $this->save(true, ['messages_views_count']);
+    }
 }
