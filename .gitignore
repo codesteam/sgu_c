@@ -7,3 +7,4 @@
 /web/uploads
 /config/capistrano_env.rb
 /config/deploy/production.rb
+/.idea
