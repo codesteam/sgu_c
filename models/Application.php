@@ -39,4 +39,31 @@ class Application extends ActiveRecord
     {
         return $this->hasMany(ApplicationMessage::className(), array('application_id' => 'id'));
     }
+
+    public function getApplicationMessagesCount()
+    {
+        return $this->getApplicationMessages()->count();
+    }
+
+    public static function getCountNewMessages()
+    {
+        return self::find()->where('messages_count > messages_views_count')->count();
+    }
+
+    public static function getApplicationIdsWithNewMessages()
+    {
+        return self::find()->select('id')->where('messages_count > messages_views_count')->limit(5)->column();
+    }
+
+    public function updateMessagesCount()
+    {
+        $this->messages_count = $this->applicationMessagesCount;
+        $this->save(true, ['messages_count']);
+    }
+
+    public function updateMessagesViewsCount()
+    {
+        $this->messages_views_count = $this->applicationMessagesCount;
+        $this->save(true, ['messages_views_count']);
+    }
 }

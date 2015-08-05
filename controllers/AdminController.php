@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use app\models\FormAdminApplicationMessage;
 use app\models\Application;
+use app\models\ApplicationMessage;
 use app\models\Ticket;
 use app\helpers\Mailer;
 
@@ -26,6 +27,12 @@ class AdminController extends Base
         ];
     }
 
+    public function init()
+    {
+        parent::init();
+        Yii::$app->view->params['pageHideSubmenu'] = true;
+    }
+
     public function actionIndex()
     {
         return $this->redirect(['/admin/applications'], 302);
@@ -37,7 +44,9 @@ class AdminController extends Base
             return $this->accessDenied();
         }
         $data = [
-            'applications' => Application::find()->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
+            'applications'            => Application::find()->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
+            'newMessages'             => Application::getCountNewMessages(),
+            'newMessagesApplications' => Application::getApplicationIdsWithNewMessages(),
         ];
         return $this->render('applications', $data);
     }
@@ -46,6 +55,7 @@ class AdminController extends Base
     {
         $model       = new FormAdminApplicationMessage();
         $application = Application::findOne($id);
+        $application->updateMessagesViewsCount();
         if (!Yii::$app->user->can('application_listing')) {
             return $this->accessDenied();
         }

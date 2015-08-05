@@ -61,6 +61,9 @@ class FormAdminApplicationMessage extends Model
             return false;
         }
 
+        // update application total messages count
+        $application->updateMessagesCount();
+
         // notify user
         Mailer::applicationMessageFromAdmin($message);
 

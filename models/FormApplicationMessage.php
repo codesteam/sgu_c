@@ -50,11 +50,19 @@ class FormApplicationMessage extends Model
             return false;
         }
 
+        // save message
         $record                 = new ApplicationMessage();
         $record->application_id = $application->id;
         $record->body           = $this->body;
         $record->sender         = ApplicationMessage::SENDER_USER;
         $record->created_at     = new Expression('NOW()');
-        return (bool)$record->save();
+        if (!$record->save()) {
+            return false;
+        }
+
+        // update application total messages count
+        $application->updateMessagesCount();
+
+        return true;
     }
 }

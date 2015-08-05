@@ -2,12 +2,12 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+use app\helpers\HtmlApplication;
 
 $this->title = 'Связаться с нами';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <?=HtmlApplication::h1(Html::encode($this->title))?>
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
         <div class="alert alert-success">
             Ваша обращение успешно отправлено.
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'template' => '<div class="row"><div class="col-lg-4">{image}</div><div class="col-lg-6">{input}</div></div>',
                     ]) ?>
                     <div class="form-group">
-                        <?= Html::submitButton('Отправить', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>
+                        <?= Html::submitButton('Отправить', ['class' => 'btn btn-info-full', 'name' => 'contact-button']) ?>
                     </div>
                 <?php ActiveForm::end(); ?>
             </div>

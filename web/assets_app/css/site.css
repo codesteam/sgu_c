@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    font-family: OpenSansLight;
 }
 
 .wrap {
@@ -15,20 +16,22 @@ body {
 }
 
 .footer {
-    height: 60px;
-    background-color: #f5f5f5;
+    height: 297px;
+    background-color: #0a2d4c; 
+    color:white;
     border-top: 1px solid #ddd;
     padding-top: 20px;
 }
-
-.jumbotron {
-    text-align: center;
-    background-color: transparent;
+.footer .contact {
+    color: #00acc5;
+}
+.footer .container{
+    padding-top:20px;
 }
 
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+.jumbotro {
+    /*text-align: center;*/
+    /*background-color: transparent;*/
 }
 
 .not-set {
@@ -97,11 +100,135 @@ a.desc:after {
 .navbar-header {
     min-height: 80px;
 }
-.jumbotron {color:#232a31}
-.site-index .jumbotron {padding-top: 100px;background: #232a31 url("/assets_app/images/main-bg.jpg") no-repeat scroll 0 0 / cover ;height:500px;margin-top: -70px}
-h1, h2, h3, h4 {
+.header-main {
+    padding-top: 100px;
+    background: #232a31 url("/assets_app/images/main-background.png") no-repeat scroll 0 0 / cover ;
+    height:700px;margin-top: -70px
+}
+.header-main-logo {
+    color:white;
+}
+.header-main-logo .main-logo-img{
+    margin-right:14px;
+}
+.header-main-logo .main-logo-title{
+    font-size:32px;font-family:OpenSansCondensedLight;
+}
+.header-main-logo .main-logo-title .part-1{
+    margin-top:16px;
+}
+.header-main-logo .main-logo-title .part-2{
+    margin-top:-14px;
+}
+.header-main .navigation{
+    margin-top:20px;
+}
+.header-main .navigation a:hover {
+    color: #05cbed;
+}
+.header-main .main-title h2 {
+    color:#24b0c8;margin-top:82px;font-size:40px;
+}
+.header-main .main-title p {
+    font-size:63px;color:#99d624;margin-top:-10px;font-family:OpenSansRegular;
+}
+.header-main .main-info {
+    margin-top:26px;
+}
+.header-main .main-info .main-info-text {
+    margin-top:12px;
+}
+.header-main .main-info .main-info-text .info-point{
+    margin-top:12px;
+}
+.header-main .main-info .main-info-text .info-point-img{
+    margin-right:10px;margin-top:6px;
+}
+.header-main .main-info .main-info-text .info-point-text .line-1{
+    font-size:20px;color:#249db6
+}
+.header-main .main-info .main-info-text .info-point-text .line-2{
+    font-size:20px;color:white;
+}
+.header-main .main-info .main-info-actions {
+    margin-top:23px;
+}
+.header-main .main-info .main-info-actions .btn{
+    width:270px;
+}
+.menu-main {
+    padding-top: 100px;
+    background: #232a31 url("/assets_app/images/main-menu-background.png") no-repeat scroll 0 0 / cover ;
+    height:210px;margin-top: -70px
+}
+.menu-main-logo {
+    color:white;
+}
+.menu-main-logo .main-logo-img{
+    margin-right:14px;
+}
+.menu-main-logo .main-logo-title{
+    font-size:26px;font-family:OpenSansCondensedLight;
+}
+.menu-main-logo .main-logo-title .part-1{
+    margin-top:16px;
+}
+.menu-main-logo .main-logo-title .part-2{
+    margin-top:-14px;
+}
+.menu-main .navigation{
+    margin-top:22px;
+}
+.menu-main .navigation a:hover {
+    color: #05cbed;
+}
+.subheader-main {
+    background-color:#e8eef4;
+}
+.subheader-main .container{
+    padding-top:28px;padding-bottom:20px;
+}
+.subheader-main .container .text{
+    color: #00acc5;
+    font-size: 16px;
     font-weight: bold;
 }
+.subheader-main .container .actions .btn{
+    margin-left: 20px;
+}
+
+
+
+.main-categories {
+    background-color:#e8eef4;
+}
+.main-categories .container{
+    padding-top:48px;padding-bottom:30px;
+}
+.main-categories .container .categories-text{
+    margin-top:50px;
+}
+.main-categories .container .categories-actions{
+    margin-top:40px;
+}
+.main-dates .container {
+    padding-top:48px;padding-bottom:30px;
+}
+.main-dates .container .main-dates-actions{
+    margin-top:40px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    color:#3c79a9;
+    font-family: OpenSansLight;
+}
+.h-centered {font-size:40px;border-bottom: 1px solid #a4bcd5;line-height: 0.1em; margin-bottom: 30px;}
+.h-centered .text {padding-right: 10px; padding-left: 10px; }
+.h-centered .text-default {background-color: white; }
+.h-centered .text-info {background-color: #e8eef4; }
+a {color: #05cbed;}
+a:hover {color: #05cbed;}
 .navbar .nav > li > a {
     color: #fff;
     text-transform: uppercase;
@@ -115,33 +242,216 @@ h1, h2, h3, h4 {
 .navbar .nav {
     padding: 13px;
 }
+.btn {
+    font-family: OpenSansSemiBold;
+}
 .btn-success {
-    background-color: #2cc76a;
-    background-image: none;
-    border-color: #2cc76a;
+    border: 1px solid #99d624;
+    background: none;
+    color: #99d624;
+}
+.btn-success:hover {
+    border: 1px solid #99d624;
+    background-color: #99d624;
 }
 .btn-info {
-    background-color: #2db6d8;
-    background-image: none;
-    border-color: #2db6d8;
+    border: 1px solid #00acc5;
+    background: none;
+    color: #00acc5;
 }
-
+.btn-info:hover {
+    border: 1px solid #00acc5;
+    background-color: #00acc5;
+}
+.btn-info-filled {
+    border: 1px solid #00acc5;
+    background: rgba(0, 172, 197, .35);;
+    color: white;
+}
+.btn-info-filled:hover {
+    border: 1px solid #00acc5;
+    background:#00acc5;
+    color: white;
+}
+.btn-info-full {
+    border: 1px solid #00acc5;
+    background-color: #00acc5;
+    color: white;
+}
+.btn-info-full:hover {
+    border: 1px solid #00acc5;
+    background:none;
+    color: #00acc5;
+}
+.btn-success-filled {
+    border: 1px solid #99d624;
+    background: rgba(153, 214, 36, .35);
+    color: white;
+}
+.btn-success-filled:hover {
+    border: 1px solid #99d624;
+    background-color: #99d624;
+    color: white;
+}
+.btn-success-full {
+    border: 1px solid #99d624;
+    background-color: #99d624;
+    color: white;
+}
+.btn-success-full:hover {
+    border: 1px solid #99d624;
+    background:none;
+    color: #99d624;
+}
 .bs-docs-sidebar  { margin-top: 25px}
     .bs-docs-sidebar  li > a {
     display: block;
     font-weight: 500;
     padding: 4px 20px;
+    border-left: 1px solid #a4bcd5;
 }
 .bs-docs-sidebar  li > a:focus, .bs-docs-sidebar  li > a:hover {
     background-color: transparent;
-    border-left: 1px solid #563d7c;
-    padding-left: 19px;
     text-decoration: none;
+    color:#99D624;
 }
 .bs-docs-sidebar  .active:focus > a, .bs-docs-sidebar  .active:hover > a, 
 .bs-docs-sidebar  .active > a {
     background-color: transparent;
-    border-left: 2px solid #563d7c;
     font-weight: 700;
-    padding-left: 18px;
+    color:#99D624;
+}
+
+
+
+/* font-family: "OpenSansRegular"; */
+@font-face {
+    font-family: "OpenSansRegular";
+    src: url("../fonts/OpenSansRegular/OpenSansRegular.eot");
+    src: url("../fonts/OpenSansRegular/OpenSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansRegular/OpenSansRegular.woff") format("woff"),
+    url("../fonts/OpenSansRegular/OpenSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansLight"; */
+@font-face {
+    font-family: "OpenSansLight";
+    src: url("../fonts/OpenSansLight/OpenSansLight.eot");
+    src: url("../fonts/OpenSansLight/OpenSansLight.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansLight/OpenSansLight.woff") format("woff"),
+    url("../fonts/OpenSansLight/OpenSansLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansItalic"; */
+@font-face {
+    font-family: "OpenSansItalic";
+    src: url("../fonts/OpenSansItalic/OpenSansItalic.eot");
+    src: url("../fonts/OpenSansItalic/OpenSansItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansItalic/OpenSansItalic.woff") format("woff"),
+    url("../fonts/OpenSansItalic/OpenSansItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansBold"; */
+@font-face {
+    font-family: "OpenSansBold";
+    src: url("../fonts/OpenSansBold/OpenSansBold.eot");
+    src: url("../fonts/OpenSansBold/OpenSansBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansBold/OpenSansBold.woff") format("woff"),
+    url("../fonts/OpenSansBold/OpenSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansExtraBold"; */
+@font-face {
+    font-family: "OpenSansExtraBold";
+    src: url("../fonts/OpenSansExtraBold/OpenSansExtraBold.eot");
+    src: url("../fonts/OpenSansExtraBold/OpenSansExtraBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansExtraBold/OpenSansExtraBold.woff") format("woff"),
+    url("../fonts/OpenSansExtraBold/OpenSansExtraBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansExtraBoldItalic"; */
+@font-face {
+    font-family: "OpenSansExtraBoldItalic";
+    src: url("../fonts/OpenSansExtraBoldItalic/OpenSansExtraBoldItalic.eot");
+    src: url("../fonts/OpenSansExtraBoldItalic/OpenSansExtraBoldItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansExtraBoldItalic/OpenSansExtraBoldItalic.woff") format("woff"),
+    url("../fonts/OpenSansExtraBoldItalic/OpenSansExtraBoldItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansBoldItalic"; */
+@font-face {
+    font-family: "OpenSansBoldItalic";
+    src: url("../fonts/OpenSansBoldItalic/OpenSansBoldItalic.eot");
+    src: url("../fonts/OpenSansBoldItalic/OpenSansBoldItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansBoldItalic/OpenSansBoldItalic.woff") format("woff"),
+    url("../fonts/OpenSansBoldItalic/OpenSansBoldItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansRegularItalic"; */
+@font-face {
+    font-family: "OpenSansRegularItalic";
+    src: url("../fonts/OpenSansRegularItalic/OpenSansRegularItalic.eot");
+    src: url("../fonts/OpenSansRegularItalic/OpenSansRegularItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansRegularItalic/OpenSansRegularItalic.woff") format("woff"),
+    url("../fonts/OpenSansRegularItalic/OpenSansRegularItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansSemiBold"; */
+@font-face {
+    font-family: "OpenSansSemiBold";
+    src: url("../fonts/OpenSansSemiBold/OpenSansSemiBold.eot");
+    src: url("../fonts/OpenSansSemiBold/OpenSansSemiBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansSemiBold/OpenSansSemiBold.woff") format("woff"),
+    url("../fonts/OpenSansSemiBold/OpenSansSemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansSemiBoldItalic"; */
+@font-face {
+    font-family: "OpenSansSemiBoldItalic";
+    src: url("../fonts/OpenSansSemiBoldItalic/OpenSansSemiBoldItalic.eot");
+    src: url("../fonts/OpenSansSemiBoldItalic/OpenSansSemiBoldItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansSemiBoldItalic/OpenSansSemiBoldItalic.woff") format("woff"),
+    url("../fonts/OpenSansSemiBoldItalic/OpenSansSemiBoldItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* font-family: "OpenSansCondensedLight"; */
+@font-face {
+    font-family: "OpenSansCondensedLight";
+    src: url("../fonts/OpenSansCondensedLight/OpenSansCondensedLight.eot");
+    src: url("../fonts/OpenSansCondensedLight/OpenSansCondensedLight.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansCondensedLight/OpenSansCondensedLight.woff") format("woff"),
+    url("../fonts/OpenSansCondensedLight/OpenSansCondensedLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansCondensedLightItalic"; */
+@font-face {
+    font-family: "OpenSansCondensedLightItalic";
+    src: url("../fonts/OpenSansCondensedLightItalic/OpenSansCondensedLightItalic.eot");
+    src: url("../fonts/OpenSansCondensedLightItalic/OpenSansCondensedLightItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansCondensedLightItalic/OpenSansCondensedLightItalic.woff") format("woff"),
+    url("../fonts/OpenSansCondensedLightItalic/OpenSansCondensedLightItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansCondensedBold"; */
+@font-face {
+    font-family: "OpenSansCondensedBold";
+    src: url("../fonts/OpenSansCondensedBold/OpenSansCondensedBold.eot");
+    src: url("../fonts/OpenSansCondensedBold/OpenSansCondensedBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansCondensedBold/OpenSansCondensedBold.woff") format("woff"),
+    url("../fonts/OpenSansCondensedBold/OpenSansCondensedBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
