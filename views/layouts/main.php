@@ -49,22 +49,24 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
-        <div class="subheader-main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 text">
-                        Межрегиональная научно-практическая конференция<br/>
-                        23-25 сентября 2015
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="pull-right actions">
-                            <?= Html::a('Cвязаться с нами', ['/site/feedback'], ['class' => 'btn btn-success-full pull-right']) ?>
-                            <?= Html::a('Подать заявку на участие', ['/site/application'], ['class' => 'btn btn-info-full pull-right']) ?>
+        <? if (empty($this->params['pageHideSubmenu'])) :?>
+            <div class="subheader-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 text">
+                            Межрегиональная научно-практическая конференция<br/>
+                            23-25 сентября 2015
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="pull-right actions">
+                                <?= Html::a('Cвязаться с нами', ['/site/feedback'], ['class' => 'btn btn-success-full pull-right']) ?>
+                                <?= Html::a('Подать заявку на участие', ['/site/application'], ['class' => 'btn btn-info-full pull-right']) ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <? endif ?>
         <?php
             // TODO: remove it. It fix scroll plugin
             NavBar::begin([

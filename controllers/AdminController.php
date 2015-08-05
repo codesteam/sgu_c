@@ -27,6 +27,12 @@ class AdminController extends Base
         ];
     }
 
+    public function init()
+    {
+        parent::init();
+        Yii::$app->view->params['pageHideSubmenu'] = true;
+    }
+
     public function actionIndex()
     {
         return $this->redirect(['/admin/applications'], 302);

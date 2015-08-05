@@ -11,9 +11,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>
-            Внимание! У вас <?=$newMessages?> непрочитанных сообщение(й) по заявкам!
+            Внимание! У есть заявки (<?=$newMessages?>) с непрочитанными сообщениями!
             <? foreach ($newMessagesApplications as $applicationId) :?>
-                <?= Html::a("#$applicationId", ['admin/application', 'id' => $applicationId]) ?>
+                <?= Html::a("Заявка #$applicationId", ['admin/application', 'id' => $applicationId]) ?>
             <? endforeach ?>
         </div>
     <?endif;?>

@@ -7,7 +7,7 @@ class m150730_112406_add_messages_count extends Migration
 {
     public function up()
     {
-        $this->addColumn('applications', 'messages_count', 'int');
+        $this->addColumn('applications', 'messages_count', 'int DEFAULT 0');
     }
 
     public function down()

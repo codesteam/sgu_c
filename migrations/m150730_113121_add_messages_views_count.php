@@ -7,7 +7,7 @@ class m150730_113121_add_messages_views_count extends Migration
 {
     public function up()
     {
-        $this->addColumn('applications', 'messages_views_count', 'int');
+        $this->addColumn('applications', 'messages_views_count', 'int DEFAULT 0');
     }
 
     public function down()
