@@ -40,7 +40,7 @@ $this->title = 'Межрегиональная научно-практическ
                         </div>
                         <div class="pull-left info-point-text">
                             <div class="line-1">Место проведения:</div>
-                            <div class="line-2">Севастопольский государаственный университет</div>
+                            <div class="line-2">Севастопольский государственный университет</div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
