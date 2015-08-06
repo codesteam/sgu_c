@@ -164,6 +164,9 @@ a.desc:after {
 .menu-main-logo {
     color:white;
 }
+.menu-main-logo a {
+    color:white;
+}
 .menu-main-logo .main-logo-img{
     margin-right:14px;
 }

@@ -30,15 +30,15 @@ AppAsset::register($this);
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="menu-main-logo">
-                                <div class="pull-left main-logo-img">
-                                    <a href="/">
+                                <a href="/">
+                                    <div class="pull-left main-logo-img">
                                         <img src="/assets_app/images/logo-medium.png" />
-                                    </a>
-                                </div>
-                                <div class="pull-left text-left main-logo-title">
-                                    <div class="part-1">Перспективные направления развития</div>
-                                    <div class="part-2">отечественных информационных технологий</div>
-                                </div>
+                                    </div>
+                                    <div class="pull-left text-left main-logo-title">
+                                        <div class="part-1">Перспективные направления развития</div>
+                                        <div class="part-2">отечественных информационных технологий</div>
+                                    </div>
+                                </a>
                             </div>
                             <div class="navigation" >
                                 <?= Html::a('Контакты', ['/contact'], ['class' => 'btn pull-right']) ?>
@@ -101,7 +101,7 @@ AppAsset::register($this);
             </div>
             <div class="pull-left">
                 Кафедра Информационных систем СевГУ <?= date('Y') ?> <br/>
-                Севастопольский государственный универсистет
+                Севастопольский государственный университет
             </div>
             <div class="clearfix"></div>
             <br/>
