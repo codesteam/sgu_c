@@ -2,6 +2,7 @@
 
 namespace app\helpers;
 
+use yii\helpers\Inflector;
 use app\models\Application;
 
 /**
@@ -9,6 +10,8 @@ use app\models\Application;
  */
 class HtmlApplication
 {
+    static public $h2Queue = [];
+
     public static function status($status)
     {
         $map = [
@@ -44,5 +47,12 @@ class HtmlApplication
                 <h2 class="h-centered"><span class="text '.$class.'">'.$title.'<span></h2>
             </div>
         ';
+    }
+
+    public static function h2Queue($title)
+    {
+        $slug = 'l-'.Inflector::slug($title);
+        self::$h2Queue[$slug] = $title;
+        return '<h2 id="'.$slug.'">'.$title.'</h2>';
     }
 }
