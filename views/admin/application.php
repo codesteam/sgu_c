@@ -31,6 +31,24 @@ $this->params['breadcrumbs'][] = $this->title;
                             'data'  => ['confirm' => 'Вы действительно хотите это сделать?']
                         ]
                     )?>
+                    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Отклонить заявку</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="<?=Yii::$app->UrlManager->CreateUrl('admin/send-declines-messages')?>" method="get">
+                                        <p><b>Опишите причину отклонения заявки:</b></p>
+                                        <p><textarea rows="10" cols="45" name="text"></textarea></p>
+                                        <p><input type="submit" value="Отправить"></p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class = "btn btn-sm btn-danger" data-toggle="modal"  data-target="#basicModal">Отклонить заявку (New)</a>
                 </div>
             <? endif ?>
             <h4><?= Html::encode($this->title) ?></h4>

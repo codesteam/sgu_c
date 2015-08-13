@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use app\models\FormAdminApplicationMessage;
+use app\models\FormAdminApplicationModeration;
 use app\models\Application;
 use app\models\ApplicationMessage;
 use app\models\Ticket;
@@ -100,5 +101,11 @@ class AdminController extends Base
             'ticket' => Ticket::findOne($id),
         ];
         return $this->render('ticket', $data);
+    }
+
+    public function actionSendDeclinesMessages()
+    {
+        $text = Yii::$app->request->get('text');
+        echo $text;
     }
 }
