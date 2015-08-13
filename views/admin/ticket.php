@@ -7,24 +7,16 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
     <?= $this->render('_menu', ['active' => 'tickets']) ?>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Email</th>
-                <th>Сообщение</th>
-                <th>Дата обращения</th>
-            </tr>
-        </thead>
-        <tbody>
-            <? foreach ($ticket->ticketMessages as $message) :?>
-                <tr>
-                    <th scope="row"><?=$message->id?></th>
-                    <td><?=Html::encode($message->email)?></td>
-                    <td><?=Html::encode($message->body)?></td>
-                    <td><?=Html::encode($message->created_at)?></td>
-                </tr>
-            <? endforeach ?>
-        </tbody>
-    </table>
+
+    <? foreach ($ticket->ticketMessages as $message) :?>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <strong>Пользователь: <?=Html::encode($message->email)?></strong>
+                <div class="pull-right"><strong><?=Html::encode($message->created_at)?></strong></div>
+            </div>
+            <div class="panel-body">
+                <td><?=nl2br(Html::encode($message->body))?></td>
+            </div>
+        </div>
+    <? endforeach ?>
 </div>
