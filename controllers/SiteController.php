@@ -12,6 +12,7 @@ use app\models\FormApplicationMessage;
 use app\models\Category;
 use app\models\Application;
 use app\models\ConferenceDates;
+use app\models\News;
 
 class SiteController extends Base
 {
@@ -127,5 +128,10 @@ class SiteController extends Base
         }
         Yii::$app->view->params['pageScrollSpy'] = 'infoScrollSpy';
         return $this->render($map[$view], ['dates' => ConferenceDates::all()]);
+    }
+
+    public function actionNews()
+    {
+        return $this->render('news', ['news' => News::all()]);
     }
 }

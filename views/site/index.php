@@ -22,7 +22,8 @@ $this->title = 'Межрегиональная научно-практическ
                     </div>
                     <div class="navigation" >
                         <?= Html::a('Контакты', ['/contact'], ['class' => 'btn btn-lg pull-right']) ?>
-                        <?= Html::a('Информация о конференции', ['/info'], ['class' => 'btn btn-lg btn-success pull-right']) ?>
+                        <?= Html::a('Новости', ['/news'], ['class' => 'btn btn-lg pull-right']) ?>
+                        <?= Html::a('Информация', ['/info'], ['class' => 'btn btn-lg btn-success pull-right']) ?>
                     </div>
                 </div>
             </div>
@@ -115,10 +116,10 @@ $this->title = 'Межрегиональная научно-практическ
                         <table class="table">
                             <tbody>
                                 <? foreach ($dates as $date) :?>
-                                <tr>
-                                    <td><?=$date['title']?></td>
-                                    <td><?=$date['date']?></td>
-                                </tr>
+                                    <tr>
+                                        <td><?=$date['title']?></td>
+                                        <td><?=$date['date']?></td>
+                                    </tr>
                                 <? endforeach ?>
                             </tbody>
                         </table>

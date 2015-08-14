@@ -42,7 +42,8 @@ AppAsset::register($this);
                             </div>
                             <div class="navigation" >
                                 <?= Html::a('Контакты', ['/contact'], ['class' => 'btn pull-right']) ?>
-                                <?= Html::a('Информация о конференции', ['/info'], ['class' => 'btn btn-success pull-right']) ?>
+                                <?= Html::a('Новости', ['/news'], ['class' => 'btn pull-right']) ?>
+                                <?= Html::a('Информация', ['/info'], ['class' => 'btn btn-success pull-right']) ?>
                             </div>
                         </div>
                     </div>
