@@ -107,8 +107,22 @@ $this->title = 'Межрегиональная научно-практическ
                 <div class="row">
                     <div class="col-lg-12">
                         <?=HtmlApplication::h2('Важные даты', 'text-default')?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
                         <br/>
-                        <img src="/assets_app/images/main-dates.png" class="img-responsive" />
+                        <table class="table">
+                            <tbody>
+                                <? foreach ($dates as $date) :?>
+                                <tr>
+                                    <td><?=$date['title']?></td>
+                                    <td><?=$date['date']?></td>
+                                </tr>
+                                <? endforeach ?>
+                            </tbody>
+                        </table>
+                        <!-- <img src="/assets_app/images/main-dates.png" class="img-responsive" /> -->
                         <!-- <table class="table text-left">
                             <tbody>
                                 <tr>
