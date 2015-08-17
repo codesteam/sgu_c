@@ -74,7 +74,7 @@ $this->title = 'Заявка на участие #'.$application->id;
                         <? foreach ($application->applicationFiles as $index => $file) :?>
                             <tr>
                                 <th scope="row"><?=$index + 1?></th>
-                                <td><?=Html::a($file->name, '/uploads/'.$file->name, ['target' => '_blank'])?></td>
+                                <td><?=Html::a($file->name_origin, '/uploads/'.$file->name, ['target' => '_blank'])?></td>
                             </tr>
                         <? endforeach ?>
                     </tbody>
