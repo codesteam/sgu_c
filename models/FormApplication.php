@@ -149,6 +149,7 @@ class FormApplication extends Model
             $applicationFile                 = new ApplicationFile();
             $applicationFile->application_id = $application->id;
             $applicationFile->name           = Yii::$app->getSecurity()->generateRandomString(50).'.'.$this->attach->extension;
+            $applicationFile->name_origin    = $this->attach->name;
             $applicationFile->save();
             $this->attach->saveAs(Yii::getAlias('@webroot').'/uploads/'.$applicationFile->name);
         }
