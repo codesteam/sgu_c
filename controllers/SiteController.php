@@ -11,6 +11,8 @@ use app\models\FormApplication;
 use app\models\FormApplicationMessage;
 use app\models\Category;
 use app\models\Application;
+use app\models\ConferenceDates;
+use app\models\News;
 
 class SiteController extends Base
 {
@@ -54,7 +56,7 @@ class SiteController extends Base
     {
         Yii::$app->view->params['pageWrap'] = true;
         Yii::$app->view->params['pageHideNavbar'] = true;
-        return $this->render('index');
+        return $this->render('index', ['dates' => ConferenceDates::all()]);
     }
 
     public function actionLogin()
@@ -125,6 +127,11 @@ class SiteController extends Base
             return $this->pageNotFound();
         }
         Yii::$app->view->params['pageScrollSpy'] = 'infoScrollSpy';
-        return $this->render($map[$view]);
+        return $this->render($map[$view], ['dates' => ConferenceDates::all()]);
+    }
+
+    public function actionNews()
+    {
+        return $this->render('news', ['news' => News::all()]);
     }
 }

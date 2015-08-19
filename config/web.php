@@ -46,6 +46,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
             'rules' => [
+                'news'                                  => 'site/news',
                 '<view:(contact|info)>'                 => 'site/page',
                 'admin/application/<id:\d+>'            => 'admin/application',
                 'admin/application-set-status/<id:\d+>' => 'admin/applicationSetStatus',
