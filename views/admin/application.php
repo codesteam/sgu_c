@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <form action="<?=Yii::$app->UrlManager->CreateUrl('admin/send-declines-messages')?>" method="get">
                                         <p><b>Опишите причину отклонения заявки:</b></p>
                                         <p><textarea rows="10" cols="45" name="text"></textarea></p>
-                                        <p><input type="submit" value="Отправить"></p>
+                                        <p><input type="submit" value="Отклонить"></p>
                                     </form>
                                 </div>
                             </div>
@@ -63,7 +63,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     </tr>
                     <tr>
                         <td>Статус</td>
-                        <td><?=HtmlApplication::status($application->status)?></td>
+                        <td><?=HtmlApplication::status($application->status)?>
+                            <? if ($application->status == Application::STATUS_DECLINED) :?>
+                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">?</button>
+                            <? endif ?>
+                        </td>
                     </tr>
                     <tr>
                         <td>Комментарий</td><td><?=Html::encode($application->comment)?></td>
