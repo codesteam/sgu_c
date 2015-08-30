@@ -87,6 +87,7 @@ $this->title = 'Информация о конференции';
                     </tr>
                 </tbody>
             </table>
+            <a href="/assets_app/files/organizers.doc">Подробнее</a>
             <?=HtmlApplication::h2Queue('Информационное обеспечение')?>
             <ul>
                 <li>Журнал «Экспертный союз»</li>
