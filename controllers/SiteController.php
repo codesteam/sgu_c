@@ -120,8 +120,9 @@ class SiteController extends Base
     public function actionPage($view)
     {
         $map = [
-            'contact' => '/static/contact',
-            'info'    => '/static/info',
+            'contact'     => '/static/contact',
+            'info'        => '/static/info',
+            'it_festival' => '/static/it_festival',
         ];
         if (!isset($map[$view])) {
             return $this->pageNotFound();

@@ -15,12 +15,13 @@ $this->title = 'Межрегиональная научно-практическ
                         <div class="pull-left main-logo-img">
                             <img src="/assets_app/images/logo-big.png" />
                         </div>
-                        <div class="pull-left text-left main-logo-title">
+                        <div class="pull-left text-left main-logo-title"  style="font-size:28px">
                             <div class="part-1">Перспективные направления развития</div>
                             <div class="part-2">отечественных информационных технологий</div>
                         </div>
                     </div>
                     <div class="navigation" >
+                        <?= Html::a('IT фестиваль', ['/it_festival'], ['class' => 'btn btn-lg pull-right']) ?>
                         <?= Html::a('Контакты', ['/contact'], ['class' => 'btn btn-lg pull-right']) ?>
                         <?= Html::a('Новости', ['/news'], ['class' => 'btn btn-lg pull-right']) ?>
                         <?= Html::a('Информация', ['/info'], ['class' => 'btn btn-lg btn-success pull-right']) ?>

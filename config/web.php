@@ -47,7 +47,7 @@ $config = [
             'showScriptName'  => false,
             'rules' => [
                 'news'                                  => 'site/news',
-                '<view:(contact|info)>'                 => 'site/page',
+                '<view:(contact|info|it_festival)>'     => 'site/page',
                 'admin/application/<id:\d+>'            => 'admin/application',
                 'admin/application-set-status/<id:\d+>' => 'admin/applicationSetStatus',
             ],
