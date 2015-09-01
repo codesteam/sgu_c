@@ -41,7 +41,7 @@ AppAsset::register($this);
                                 </a>
                             </div>
                             <div class="navigation" >
-                                <?= Html::a('IT фестиваль', ['/it_festival'], ['class' => 'btn pull-right']) ?>
+                                <?= Html::a('IT-фестиваль', ['/it_festival'], ['class' => 'btn pull-right']) ?>
                                 <?= Html::a('Контакты', ['/contact'], ['class' => 'btn pull-right']) ?>
                                 <?= Html::a('Новости', ['/news'], ['class' => 'btn pull-right']) ?>
                                 <?= Html::a('Информация', ['/info'], ['class' => 'btn btn-success pull-right']) ?>

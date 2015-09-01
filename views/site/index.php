@@ -21,7 +21,7 @@ $this->title = 'Межрегиональная научно-практическ
                         </div>
                     </div>
                     <div class="navigation" >
-                        <?= Html::a('IT фестиваль', ['/it_festival'], ['class' => 'btn btn-lg pull-right']) ?>
+                        <?= Html::a('IT-фестиваль', ['/it_festival'], ['class' => 'btn btn-lg pull-right']) ?>
                         <?= Html::a('Контакты', ['/contact'], ['class' => 'btn btn-lg pull-right']) ?>
                         <?= Html::a('Новости', ['/news'], ['class' => 'btn btn-lg pull-right']) ?>
                         <?= Html::a('Информация', ['/info'], ['class' => 'btn btn-lg btn-success pull-right']) ?>

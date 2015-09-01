@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use app\helpers\HtmlApplication;
 
-$this->title = 'IT фестиваль';
+$this->title = 'IT-фестиваль';
 ?>
 <div class="site-login">
     <?=HtmlApplication::h1(Html::encode($this->title))?>
