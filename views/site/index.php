@@ -55,6 +55,16 @@ $this->title = 'Межрегиональная научно-практическ
                             <div class="line-2">до 10 сентября 2015 г.</div>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
+                    <div class="info-point">
+                        <div class="pull-left info-point-img">
+                           <img src="/assets_app/images/checkbox.png" />
+                        </div>
+                        <div class="pull-left info-point-text">
+                            <div class="line-1">IT-фестиваль срок подачи студенческих заявок:</div>
+                            <div class="line-2">до 20 сентября 2015 г.</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6 main-info-actions">
                     <?= Html::a('Подать заявку на участие', ['/site/application'], ['class' => 'btn btn-lg btn-success-filled pull-right']) ?>

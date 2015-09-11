@@ -13,9 +13,11 @@ $this->title = 'IT-фестиваль';
     </p>
     <p>
         Конкурс научных работ <a href="/assets_app/files/конкурс-научных-работ.pdf">подробности</a>
+        (отправка заявок - <strong class="text-danger">sc.pnroit@gmail.com</strong>)
     </p>
     <p>
         Конкурс проектов <a href="/assets_app/files/конкурс-студенческих-проектов.pdf">подробности</a>
+        (отправка заявок - <strong class="text-danger">proj.pnroit@gmail.com</strong>)
     </p>
     <p>
         Участие в конференции и круглых столах подтвердили представители НП РУССОФТ, 
