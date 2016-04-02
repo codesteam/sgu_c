@@ -1,6 +1,7 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
+$staticPagesRegExp = '<view:(contact|info|2015-09-info|2015-09-it-festival)>';
 
 $config = [
     'id'         => 'basic',
@@ -47,7 +48,8 @@ $config = [
             'showScriptName'  => false,
             'rules' => [
                 'news'                                  => 'site/news',
-                '<view:(contact|info|it_festival)>'     => 'site/page',
+                'archive'                               => 'site/archive',
+                $staticPagesRegExp                      => 'site/page',
                 'admin/application/<id:\d+>'            => 'admin/application',
                 'admin/application-set-status/<id:\d+>' => 'admin/applicationSetStatus',
             ],

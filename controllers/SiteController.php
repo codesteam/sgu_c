@@ -12,6 +12,7 @@ use app\models\FormApplicationMessage;
 use app\models\Category;
 use app\models\Application;
 use app\models\ConferenceDates;
+use app\models\ConferenceEvent;
 use app\models\News;
 
 class SiteController extends Base
@@ -56,7 +57,7 @@ class SiteController extends Base
     {
         Yii::$app->view->params['pageWrap'] = true;
         Yii::$app->view->params['pageHideNavbar'] = true;
-        return $this->render('index', ['dates' => ConferenceDates::all()]);
+        return $this->render('index');
     }
 
     public function actionLogin()
@@ -93,7 +94,7 @@ class SiteController extends Base
     public function actionApplication()
     {
         $model      = new FormApplication();
-        $categories = Category::find()->all();
+        $categories = ConferenceEvent::getCurrent()->conferenceCategories;
         if ($model->load(Yii::$app->request->post()) && $model->create()) {
             Yii::$app->session->setFlash('contactFormSubmitted');
             return $this->refresh();
@@ -120,19 +121,25 @@ class SiteController extends Base
     public function actionPage($view)
     {
         $map = [
-            'contact'     => '/static/contact',
-            'info'        => '/static/info',
-            'it_festival' => '/static/it_festival',
+            'contact'             => '/static/contact',
+            '2015-09-info'        => '/static/2015-09/info',
+            '2015-09-it-festival' => '/static/2015-09/it_festival',
+            'info'                => '/static/2016-09/info',
         ];
         if (!isset($map[$view])) {
             return $this->pageNotFound();
         }
         Yii::$app->view->params['pageScrollSpy'] = 'infoScrollSpy';
-        return $this->render($map[$view], ['dates' => ConferenceDates::all()]);
+        return $this->render($map[$view]);
     }
 
     public function actionNews()
     {
         return $this->render('news', ['news' => News::all()]);
+    }
+
+    public function actionArchive()
+    {
+        return $this->render('archive', ['archive' => ConferenceEvent::find()->where(['status' => ConferenceEvent::STATUS_ARCHIVED])->all()]);
     }
 }

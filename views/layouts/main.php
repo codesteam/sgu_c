@@ -4,6 +4,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\helpers\HtmlApplication;
 
 AppAsset::register($this);
 ?>
@@ -27,27 +28,7 @@ AppAsset::register($this);
         <div class="site-index">
             <div class="menu-main">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="menu-main-logo">
-                                <a href="/">
-                                    <div class="pull-left main-logo-img">
-                                        <img src="/assets_app/images/logo-medium.png" />
-                                    </div>
-                                    <div class="pull-left text-left main-logo-title">
-                                        <div class="part-1">Перспективные направления развития</div>
-                                        <div class="part-2">отечественных информационных технологий</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="navigation" >
-                                <?= Html::a('IT-фестиваль', ['/it_festival'], ['class' => 'btn pull-right']) ?>
-                                <?= Html::a('Контакты', ['/contact'], ['class' => 'btn pull-right']) ?>
-                                <?= Html::a('Новости', ['/news'], ['class' => 'btn pull-right']) ?>
-                                <?= Html::a('Информация', ['/info'], ['class' => 'btn btn-success pull-right']) ?>
-                            </div>
-                        </div>
-                    </div>
+                    <?= $this->render('_top_menu') ?>
                 </div>
             </div>
         </div>
@@ -57,7 +38,7 @@ AppAsset::register($this);
                     <div class="row">
                         <div class="col-lg-6 text">
                             Межрегиональная научно-практическая конференция<br/>
-                            23-25 сентября 2015
+                            <?=HtmlApplication::datesInterval($this->params['currentConference']->start_at, $this->params['currentConference']->end_at) ?>
                         </div>
                         <div class="col-lg-6">
                             <div class="pull-right actions">
@@ -77,7 +58,7 @@ AppAsset::register($this);
                     'style' => 'display:none',
                 ],
             ]);
-            
+
             NavBar::end();
         ?>
     <? endif ?>

@@ -5,6 +5,7 @@ use yii\captcha\Captcha;
 use app\helpers\HtmlApplication;
 
 $this->title = 'Связаться с нами';
+$this->params['topMenu'] = 'contact';
 ?>
 <div class="site-contact">
     <?=HtmlApplication::h1(Html::encode($this->title))?>
@@ -13,7 +14,7 @@ $this->title = 'Связаться с нами';
             Ваша обращение успешно отправлено.
         </div>
         <p>
-            Обращаем ваше внимание на то, что нам требуется некоторое время для обработки Вашего обращения. 
+            Обращаем ваше внимание на то, что нам требуется некоторое время для обработки Вашего обращения.
         </p>
     <?php else: ?>
         <p>

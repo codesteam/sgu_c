@@ -17,7 +17,7 @@ body {
 
 .footer {
     height: 297px;
-    background-color: #0a2d4c; 
+    background-color: #0a2d4c;
     color:white;
     border-top: 1px solid #ddd;
     padding-top: 20px;
@@ -112,7 +112,7 @@ a.desc:after {
     margin-right:14px;
 }
 .header-main-logo .main-logo-title{
-    font-size:32px;font-family:OpenSansCondensedLight;
+    font-size:28px;font-family:OpenSansCondensedLight;
 }
 .header-main-logo .main-logo-title .part-1{
     margin-top:16px;
@@ -318,7 +318,7 @@ a:hover {color: #05cbed;}
     text-decoration: none;
     color:#99D624;
 }
-.bs-docs-sidebar  .active:focus > a, .bs-docs-sidebar  .active:hover > a, 
+.bs-docs-sidebar  .active:focus > a, .bs-docs-sidebar  .active:hover > a,
 .bs-docs-sidebar  .active > a {
     background-color: transparent;
     font-weight: 700;

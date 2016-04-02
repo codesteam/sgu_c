@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 use app\helpers\HtmlApplication;
 
 $this->title = 'Заявка на участие';
+$this->params['topMenu'] = 'contact';
 ?>
 <div class="site-contact" ng-controller="SiteApplicationCtrl">
     <?=HtmlApplication::h1(Html::encode($this->title))?>
@@ -32,7 +33,7 @@ $this->title = 'Заявка на участие';
                     'layout'  => 'horizontal',
                     'options' => ['enctype'=>'multipart/form-data']
                 ]); ?>
-                    <div class="form-group"> 
+                    <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-6">
                             <strong>Основная информация</strong>
                             <hr/>
@@ -52,51 +53,51 @@ $this->title = 'Заявка на участие';
                     <?= $form->field($model, 'phone') ?>
                     <?= $form->field($model, 'comment')->textarea(['rows' => 4]) ?>
                     <div ng-repeat="member in members" ng-show="report">
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <strong>Автор {{ $index + 2 }}</strong>
                                 <hr/>
                             </div>
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <?= Html::label('ФИО', '', ['class' => 'control-label col-sm-3']) ?>
-                            <div class="col-sm-6"> 
+                            <div class="col-sm-6">
                                 <?= Html::input('text', 'FormApplication[members][{{$index}}][name]', '', ['class' => 'form-control', 'ng-model'=> 'member.name']) ?>
                             </div>
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <?= Html::label('Страна, город', '', ['class' => 'control-label col-sm-3']) ?>
-                            <div class="col-sm-6"> 
+                            <div class="col-sm-6">
                                 <?= Html::input('text', 'FormApplication[members][{{$index}}][location]', '', ['class' => 'form-control', 'ng-model'=> 'member.location']) ?>
                             </div>
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <?= Html::label('Место работы (полностью)', '', ['class' => 'control-label col-sm-3']) ?>
-                            <div class="col-sm-6"> 
+                            <div class="col-sm-6">
                                 <?= Html::input('text', 'FormApplication[members][{{$index}}][profession]', '', ['class' => 'form-control', 'ng-model'=> 'member.profession']) ?>
                             </div>
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <?= Html::label('Должность, степень, звание', '', ['class' => 'control-label col-sm-3']) ?>
-                            <div class="col-sm-6"> 
+                            <div class="col-sm-6">
                                 <?= Html::input('text', 'FormApplication[members][{{$index}}][rank]', '', ['class' => 'form-control', 'ng-model'=> 'member.rank']) ?>
                             </div>
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <?= Html::label('Почтовый адрес (для переписки)', '', ['class' => 'control-label col-sm-3']) ?>
-                            <div class="col-sm-6"> 
+                            <div class="col-sm-6">
                                 <?= Html::input('text', 'FormApplication[members][{{$index}}][post_address]', '', ['class' => 'form-control', 'ng-model'=> 'member.post_address']) ?>
                             </div>
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <?= Html::label('Контактные телефоны, факс', '', ['class' => 'control-label col-sm-3']) ?>
-                            <div class="col-sm-6"> 
+                            <div class="col-sm-6">
                                 <?= Html::input('text', 'FormApplication[members][{{$index}}][phone]', '', ['class' => 'form-control', 'ng-model'=> 'member.phone']) ?>
                             </div>
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <?= Html::label('Email', '', ['class' => 'control-label col-sm-3']) ?>
-                            <div class="col-sm-6"> 
+                            <div class="col-sm-6">
                                 <?= Html::input('text', 'FormApplication[members][{{$index}}][email]', '', ['class' => 'form-control', 'ng-model'=> 'member.email']) ?>
                             </div>
                         </div>

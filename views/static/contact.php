@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use app\helpers\HtmlApplication;
 
 $this->title = 'Контакты';
+$this->params['topMenu'] = 'contact';
 ?>
 <div class="site-login">
     <?=HtmlApplication::h1(Html::encode($this->title))?>

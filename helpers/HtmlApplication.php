@@ -55,4 +55,27 @@ class HtmlApplication
         self::$h2Queue[$slug] = $title;
         return '<h2 id="'.$slug.'">'.$title.'</h2>';
     }
+
+    public static function date($date)
+    {
+        $monthes = [
+            1 => 'Января', 2 => 'Февраля', 3 => 'Марта', 4 => 'Апреля',
+            5 => 'Мая', 6 => 'Июня', 7 => 'Июля', 8 => 'Августа',
+            9 => 'Сентября', 10 => 'Октября', 11 => 'Ноября', 12 => 'Декабря'
+        ];
+        $time = strtotime($date);
+        return date('d '.$monthes[date('n', $time)].' Y', $time);
+    }
+
+    public static function datesInterval($from, $to)
+    {
+        $monthes = [
+            1 => 'Января', 2 => 'Февраля', 3 => 'Марта', 4 => 'Апреля',
+            5 => 'Мая', 6 => 'Июня', 7 => 'Июля', 8 => 'Августа',
+            9 => 'Сентября', 10 => 'Октября', 11 => 'Ноября', 12 => 'Декабря'
+        ];
+        $timeFrom = strtotime($from);
+        $timeTo   = strtotime($to);
+        return date('d', $timeFrom).' - '.date('d', $timeTo).' '.$monthes[date('n', $timeTo)].' '.date('Y', $timeTo);
+    }
 }
