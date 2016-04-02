@@ -24,12 +24,12 @@ require '_css.php';
                                 <table width="100%">
                                     <tr>
                                         <td>
-                                            ПНРОИТ 2015
+                                            ПНРОИТ <?=date('Y')?>
                                         </td>
                                         <td style="text-align:right">
                                             <span style="margin-top:20px">
-                                                <a href="<?=Url::to('/', 1);?>"        style="<?=$styleLink?>;padding-right:15px;">Главная</a> 
-                                                <a href="<?=Url::to('/contact', 1);?>" style="<?=$styleLink?>;border-left:2px solid #eee;padding-right:15px;padding-left:15px;">Контакты</a> 
+                                                <a href="<?=Url::to('/', 1);?>"        style="<?=$styleLink?>;padding-right:15px;">Главная</a>
+                                                <a href="<?=Url::to('/contact', 1);?>" style="<?=$styleLink?>;border-left:2px solid #eee;padding-right:15px;padding-left:15px;">Контакты</a>
                                                 <a href="<?=Url::to('/info', 1);?>"    style="<?=$styleLink?>;border-left:2px solid #eee;padding-left:15px;">Информация</a>
                                             </span>
                                         </td>
