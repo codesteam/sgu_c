@@ -45,14 +45,19 @@ class Application extends ActiveRecord
         return $this->getApplicationMessages()->count();
     }
 
-    public static function getCountNewMessages()
+    public static function getCountNewMessages($conferenceEventId)
     {
-        return self::find()->where('messages_count > messages_views_count')->count();
+        return self::find()
+            ->where('messages_count > messages_views_count')
+            ->andWhere(['conference_event_id' => $conferenceEventId])->count();
     }
 
-    public static function getApplicationIdsWithNewMessages()
+    public static function getApplicationIdsWithNewMessages($conferenceEventId)
     {
-        return self::find()->select('id')->where('messages_count > messages_views_count')->limit(5)->column();
+        return self::find()->select('id')
+            ->where('messages_count > messages_views_count')
+            ->andWhere(['conference_event_id' => $conferenceEventId])
+            ->limit(5)->column();
     }
 
     public function updateMessagesCount()

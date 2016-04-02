@@ -8,6 +8,7 @@ use app\models\FormAdminApplicationMessage;
 use app\models\Application;
 use app\models\ApplicationMessage;
 use app\models\Ticket;
+use app\models\ConferenceEvent;
 use app\helpers\Mailer;
 
 class AdminController extends Base
@@ -43,10 +44,11 @@ class AdminController extends Base
         if (!Yii::$app->user->can('application_listing')) {
             return $this->accessDenied();
         }
+        $currentConference = ConferenceEvent::getCurrent();
         $data = [
-            'applications'            => Application::find()->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
-            'newMessages'             => Application::getCountNewMessages(),
-            'newMessagesApplications' => Application::getApplicationIdsWithNewMessages(),
+            'applications'            => Application::find()->where(['applications.conference_event_id' => $currentConference->id])->joinWith('category')->orderBy(['id' => SORT_DESC])->all(),
+            'newMessages'             => Application::getCountNewMessages($currentConference->id),
+            'newMessagesApplications' => Application::getApplicationIdsWithNewMessages($currentConference->id),
         ];
         return $this->render('applications', $data);
     }

@@ -106,14 +106,15 @@ class FormApplication extends Model
         }
 
         // create application
-        $application              = new Application();
-        $application->comment     = $this->comment;
-        $application->category_id = $this->category_id;
-        $application->hash        = Yii::$app->getSecurity()->generateRandomString(32);
+        $application                      = new Application();
+        $application->comment             = $this->comment;
+        $application->category_id         = $this->category_id;
+        $application->hash                = Yii::$app->getSecurity()->generateRandomString(32);
+        $application->conference_event_id = ConferenceEvent::getCurrent()->id;
         $result = $application->save();
         if (!$result) {
             return false;
-        } 
+        }
 
         // save common member
         $member                 = new ApplicationMember();

@@ -2,7 +2,7 @@
     use app\models\Application;
     use app\models\Ticket;
 
-    $applicationsCount = Application::find()->count();
+    $applicationsCount = Application::find()->where(['conference_event_id' => $this->params['currentConference']->id])->count();
     $ticketsCount      = Ticket::find()->count();
 ?>
 
@@ -10,7 +10,7 @@
     <? if (Yii::$app->user->can('application_listing')) :?>
         <li role="presentation" class="<?=$active == 'applications' ? 'active' : ''?>">
             <a href="/admin/applications">
-                Заявки 
+                Заявки
                 <? if ($applicationsCount) :?>
                     <span class="badge"><?=$applicationsCount?></span>
                 <? endif ?>
