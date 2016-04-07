@@ -228,11 +228,11 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2016'])->
             </p>
         </div>
         <div class="col-md-3">
-            <div id="infoScrollSpy" class="bs-docs-sidebar">
-                <ul class="nav bs-docs-sidenav" data-spy="affix">
+            <div class="bs-docs-sidebar">
+                <ul class="nav bs-docs-sidenav">
                     <? $first = true; ?>
                     <? foreach (HtmlApplication::$h2Queue as $slug => $title) :?>
-                        <li <?= $first ? 'class="active"' : '' ?>>
+                        <li>
                             <a href="#<?=$slug?>"><?=$title?></a>
                         </li>
                         <? $first = false ?>
