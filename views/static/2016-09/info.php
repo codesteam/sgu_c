@@ -91,21 +91,6 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2016'])->
                     </tr>
                 </tbody>
             </table>
-            <?=HtmlApplication::h2Queue('Программный комитет конференции')?>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Председатель</th>
-                        <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td nowrap="nowrap">Советов Борис Яковлевич</td>
-                        <td>Сопредседатель Научного совета по информатизации Санкт-Петербурга, председатель Объединенного учебно-методического совета по направлению «Информационные системы и технологии», академик Российской академии образования </td>
-                    </tr>
-                </tbody>
-            </table>
             <a href="/assets_app/files/2016-09/organizers.doc">Подробнее</a>
             <?=HtmlApplication::h2Queue('Информационное обеспечение')?>
             <ul>
