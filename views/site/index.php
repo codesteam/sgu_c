@@ -25,11 +25,21 @@ $this->title = 'Межрегиональная научно-практическ
                            <img src="/assets_app/images/checkbox.png" />
                         </div>
                         <div class="pull-left info-point-text">
+                            <div class="line-1">Библиографическая база РИНЦ:</div>
+                            <div class="line-2">Сборник материалов будет размещен в базе РИНЦ</div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="info-point">
+                        <div class="pull-left info-point-img">
+                           <img src="/assets_app/images/checkbox.png" />
+                        </div>
+                        <div class="pull-left info-point-text">
                             <div class="line-1">Место проведения:</div>
                             <div class="line-2">Севастопольский государственный университет</div>
                         </div>
                     </div>
-                    <? foreach ($this->params['currentConference']->getConferenceEventDates()->limit(2)->all() as $date) :?>
+                    <? foreach ($this->params['currentConference']->getConferenceEventDates()->limit(1)->all() as $date) :?>
                         <div class="clearfix"></div>
                         <div class="info-point">
                             <div class="pull-left info-point-img">

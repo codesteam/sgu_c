@@ -22,6 +22,7 @@ $this->params['topMenu'] = 'contact';
         </p>
     <?php else: ?>
         <div class="alert alert-success">
+            Сборник  материалов  будет  размещен в национальной библиографической базе РИНЦ.
             Обращаем ваше внимание на требования к <a href="/info#l-trebovania-k-oformleniu-materialov">оформлению материлов</a>
         </div>
         <p>
