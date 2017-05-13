@@ -97,22 +97,6 @@ AppAsset::register($this);
                         299053 г. Севастополь, ул. Университетская, 33
                     </span>
                 </div>
-                <div class="col-md-4 contact">
-                    <span>
-                        <img src="/assets_app/images/footer_ico_phone.png"/>
-                    </span>
-                    <span style="margin-left:5px;">
-                        +7 (978) 333 22 11, +7 (8692) 44 55 66
-                    </span>
-                </div>
-                <div class="col-md-4 contact">
-                    <span>
-                        <img src="/assets_app/images/footer_ico_email.png"/>
-                    </span>
-                    <span style="margin-left:5px;">
-                        info@proit.code-bit.com
-                    </span>
-                </div>
             </div>
         </div>
     </footer>
