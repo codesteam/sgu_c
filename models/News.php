@@ -13,7 +13,7 @@ class News
                     <p>
                         Информация о конференции:
                         <ul>
-                            <li><a href="/assets_app/files/2017-09/pnroit-2017_2.pdf">Информационное письмо</a><br/></li>
+                            <li><a href="/assets_app/files/2017-09/pnroit-2017.pdf">Информационное письмо</a><br/></li>
                          </ul>
                     </p>
             '],
