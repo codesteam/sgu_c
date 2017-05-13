@@ -98,7 +98,7 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2016'])->
                     </tr>
                 </tbody>
             </table>
-            <a href="/assets_app/files/2016-09/organizers.doc">Подробнее</a>
+            <a href="/assets_app/files/2017-09/organizers.doc">Подробнее</a>
             <?=HtmlApplication::h2Queue('Информационное обеспечение')?>
             <ul>
                 <li>Журнал «Экспертный союз»</li>
