@@ -111,6 +111,11 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2017'])->
                 <li>Севастопольское телевидение</li>
                 <li>Интернет-портал «Флот – XXI век»</li>
             </ul>
+            <?=HtmlApplication::h2Queue('Программа конференции')?>
+            <p>
+                Скачать программу конференции можно по
+                <a href="/assets_app/files/2017-09/program.pdf">ссылке</a>
+            </p>
             <?=HtmlApplication::h2Queue('Тематические направления')?>
             <ul>
                 <? foreach ($conference->conferenceCategories as $category) :?>
