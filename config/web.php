@@ -1,7 +1,7 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
-$staticPagesRegExp = '<view:(contact|info|2015-09-info|2015-09-it-festival|2016-09-info)>';
+$staticPagesRegExp = '<view:(contact|info|2015-09-info|2015-09-it-festival|2016-09-info|2017-09-info)>';
 
 $config = [
     'id'         => 'basic',

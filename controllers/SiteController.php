@@ -125,7 +125,8 @@ class SiteController extends Base
             '2015-09-info'        => '/static/2015-09/info',
             '2015-09-it-festival' => '/static/2015-09/it_festival',
             '2016-09-info'        => '/static/2016-09/info',
-            'info'                => '/static/2017-09/info',
+            '2017-09-info'        => '/static/2017-09/info',
+            'info'                => '/static/2018-09/info',
         ];
         if (!isset($map[$view])) {
             return $this->pageNotFound();
