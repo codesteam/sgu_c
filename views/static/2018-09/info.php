@@ -180,7 +180,7 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2018'])->
             <p>Работа конференции предусматривает выступления с научными докладами, проведение круглых столов и дискуссий, учебные семинары, презентацию программных продуктов.</p>
             <?=HtmlApplication::h2Queue('Рабочие языки')?>
             <p>Русский, английский.</p>
-            <?=HtmlApplication::h2Queue('Материалы конференции')?>
+            <!-- <?=HtmlApplication::h2Queue('Материалы конференции')?>
             <p>
                 Аннотации докладов будут опубликованы в томе Программы конференции «Перспективные направления развития отечественных информационных технологий» в
                 печатном и электронном виде. По окончании конференции материалы докладов
@@ -191,7 +191,7 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2018'])->
                     <li>«Региональная информатика и информационная безопасность»</li>
                     <li>«Сборка в машиностроении, приборостроении» (<a href="http://www.mashin.ru/eshop/journals/sborka_v_mashinostroenii_priborostroenii/">http://www.mashin.ru/eshop/journals/sborka_v_mashinostroenii_priborostroenii/</a>)</li>
                 </ul>
-            </p>
+            </p> -->
             <?=HtmlApplication::h2Queue('Важные даты')?>
             <br/>
             <?= $this->render('/static/_conference_dates', ['dates' => $conference->conferenceEventDates]) ?>
