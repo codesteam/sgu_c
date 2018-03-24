@@ -142,6 +142,10 @@ class SiteController extends Base
 
     public function actionArchive()
     {
-        return $this->render('archive', ['archive' => ConferenceEvent::find()->where(['status' => ConferenceEvent::STATUS_ARCHIVED])->all()]);
+        $listing = ConferenceEvent::find()
+            ->where(['status' => ConferenceEvent::STATUS_ARCHIVED])
+            ->orderBy(['start_at' => SORT_DESC])
+            ->all();
+        return $this->render('archive', ['archive' => $listing]);
     }
 }
