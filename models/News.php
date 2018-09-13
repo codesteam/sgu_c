@@ -11,6 +11,7 @@ class News
                 'date' => '13 Сентября 2018',
                 'text' => '
                     <p>
+                        <p class="text-center"><img src="/assets_app/images/program-2018.jpg" /></p>
                         <p>Информация о конференции:</p>
                         <p><a href="/assets_app/files/2018-09/program.pdf">Программа конференции</a></p>
                         <p>С уважением, Оргкомитет конференции.</p>
