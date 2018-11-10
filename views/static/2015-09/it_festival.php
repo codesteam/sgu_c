@@ -4,6 +4,7 @@ use app\helpers\HtmlApplication;
 
 $this->title = 'IT-фестиваль';
 $this->params['topMenu'] = 'archive';
+$this->params['pageHideSubmenu'] = true;
 ?>
 <div class="site-login">
     <?=HtmlApplication::h1(Html::encode($this->title))?>

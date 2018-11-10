@@ -3,9 +3,10 @@ use yii\helpers\Html;
 use app\helpers\HtmlApplication;
 use app\models\ConferenceEvent;
 
-$this->title = 'Информация о конференции';
+$this->title = '18 - 22 Сентября 2018';
 $this->params['topMenu'] = 'archive';
-$conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2017'])->one();
+$this->params['pageHideSubmenu'] = true;
+$conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2018'])->one();
 
 ?>
 <div class="site-login">

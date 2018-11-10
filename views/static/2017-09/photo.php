@@ -5,6 +5,7 @@ use app\models\ConferenceEvent;
 
 $this->title = 'Информация о конференции';
 $this->params['topMenu'] = 'archive';
+$this->params['pageHideSubmenu'] = true;
 $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2017'])->one();
 
 ?>

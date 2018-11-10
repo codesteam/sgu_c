@@ -4,6 +4,7 @@ use app\helpers\HtmlApplication;
 
 $this->title = 'Архив событий';
 $this->params['topMenu'] = 'archive';
+$this->params['pageHideSubmenu'] = true;
 ?>
 
 <div class="site-login">

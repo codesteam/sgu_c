@@ -4,6 +4,7 @@ use app\helpers\HtmlApplication;
 
 $this->title = 'Контакты';
 $this->params['topMenu'] = 'contact';
+$this->params['pageHideSubmenu'] = true;
 ?>
 <div class="site-login">
     <?=HtmlApplication::h1(Html::encode($this->title))?>
