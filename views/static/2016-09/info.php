@@ -4,7 +4,7 @@ use app\helpers\HtmlApplication;
 use app\models\ConferenceEvent;
 
 $this->title = 'Информация о конференции';
-$this->params['topMenu'] = 'info';
+$this->params['topMenu'] = 'archive';
 $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2016'])->one();
 
 ?>

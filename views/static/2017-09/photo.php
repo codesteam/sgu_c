@@ -4,7 +4,7 @@ use app\helpers\HtmlApplication;
 use app\models\ConferenceEvent;
 
 $this->title = 'Информация о конференции';
-$this->params['topMenu'] = 'info';
+$this->params['topMenu'] = 'archive';
 $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2017'])->one();
 
 ?>
@@ -61,8 +61,6 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2017'])->
             <img src="/assets_app/files/2017-09/photos/015.jpg" class="img-responsive" />
             <br/>
             <img src="/assets_app/files/2017-09/photos/016.jpg" class="img-responsive" />
-            <br/>
-            <img src="/assets_app/files/2017-09/photos/017.jpg" class="img-responsive" />
             <p>
                 Информационные материалы конференции (фотомакеты)
             </p>
