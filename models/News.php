@@ -8,6 +8,16 @@ class News
     {
         return [
             [
+                'date' => '8 Февраля 2019',
+                'text' => '
+                    <p>
+                        Информация о конференции:
+                        <ul>
+                            <li><a href="/assets_app/files/2019-09/pnroit-2019.pdf">Информационное письмо</a><br/></li>
+                         </ul>
+                    </p>
+            '],
+            [
                 'date' => '13 Сентября 2018',
                 'text' => '
                     <p>
