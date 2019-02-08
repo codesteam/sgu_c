@@ -14,6 +14,7 @@ class News
                         Информация о конференции:
                         <ul>
                             <li><a href="/assets_app/files/2019-09/pnroit-2019.pdf">Информационное письмо</a><br/></li>
+                            <li><a href="/assets_app/files/2019-09/application-2019.docx">Заявка на участие</a><br/></li>
                          </ul>
                     </p>
             '],
