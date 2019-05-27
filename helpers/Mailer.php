@@ -16,6 +16,12 @@ class Mailer
             ->setTo($application->commonMember->email)
             ->setSubject(Yii::t('mailer', 'Conference application'))
             ->send();
+
+        Yii::$app->mailer->compose('application/created_for_admin', ['application' => $application])
+            ->setFrom($_ENV['MAILER_FROM'])
+            ->setTo($_ENV['APP_ADMIN_EMAIL'])
+            ->setSubject(Yii::t('mailer', 'Conference application'))
+            ->send();
     }
 
     public static function applicationModerated($application)

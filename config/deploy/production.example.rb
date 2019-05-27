@@ -8,6 +8,7 @@ set :deploy_to, '/path/to/sguc'
 Capistrano::Env.use do |env|
   # Application
   env.add 'APP_KEY', ''
+  env.add 'APP_ADMIN_EMAIL', ''
 
   # Mailer
   env.add 'MAILER_HOST', 'localhost'
