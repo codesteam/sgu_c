@@ -81,11 +81,9 @@ AppAsset::register($this);
         <div class="container">
             <div class="pull-left">
                 ©&nbsp;
-            </div>
-            <div class="pull-left">
-                Кафедра "Информационные системы", <br/>
-                Институт информационных технологий и управления в технических системах, <br/>
-                Севастопольский государственный университет, <?= date('Y') ?>
+                Кафедра "Информационные системы",
+                Институт информационных технологий и управления в технических системах,
+                СевГУ, <?= date('Y') ?>
             </div>
             <div class="clearfix"></div>
             <br/>
@@ -96,6 +94,22 @@ AppAsset::register($this);
                     </span>
                     <span style="margin-left:5px;">
                         299053 г. Севастополь, ул. Университетская, 33
+                    </span>
+                </div>
+                <div class="col-md-2 contact">
+                    <span>
+                        <img src="/assets_app/images/footer_ico_address.png"/>
+                    </span>
+                    <span style="margin-left:5px;">
+                        <a href="https://www.sevsu.ru/" target="_blank">Сайт СевГУ</a>
+                    </span>
+                </div>
+                <div class="col-md-4 contact">
+                    <span>
+                        <img src="/assets_app/images/footer_ico_address.png"/>
+                    </span>
+                    <span style="margin-left:5px;">
+                        <a href="https://vk.com/is_sevsu" target="_blank"><i class="fa fa-user"></i> Сайт Кафедры "ИС"</a>
                     </span>
                 </div>
             </div>
