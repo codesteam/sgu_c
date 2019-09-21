@@ -8,6 +8,16 @@ class News
     {
         return [
             [
+                'date' => '21 Сентября 2019',
+                'text' => '
+                    <p>
+                        <p class="text-center"><img src="/assets_app/images/program-2019.png" /></p>
+                        <p>Информация о конференции:</p>
+                        <p><a href="/assets_app/files/2019-09/program.pdf">Программа конференции</a></p>
+                        <p>С уважением, Оргкомитет конференции.</p>
+                    </p>
+            '],
+            [
                 'date' => '15 Июня 2019',
                 'text' => '
                     <p>
