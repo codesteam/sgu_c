@@ -62,6 +62,11 @@ $this->title = 'Межрегиональная научно-практическ
                     <div class="clearfix"></div>
                     <br/>
                     <?= Html::a('Cвязаться с нами', ['/site/feedback'], ['class' => 'btn btn-lg btn-info-filled pull-right']) ?>
+                    <div class="clearfix"></div>
+                    <br/>
+                    <a href="/assets_app/files/2019-09/program.pdf" class="btn btn-lg btn-info-filled pull-right" style="border-color: #661b93;background-color: #621188">
+                        Программа конференции
+                    </a>
                 </div>
             </div>
         </div>
