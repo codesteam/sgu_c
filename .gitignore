@@ -1,6 +1,7 @@
 .env
 /vendor
 /runtime
+/magazines
 /web/assets
 /web/uploads
 /config/capistrano_env.rb

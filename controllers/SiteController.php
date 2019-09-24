@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\models\FormLogin;
+use app\models\FormLoginForDownload;
 use app\models\FormContact;
 use app\models\FormApplication;
 use app\models\FormApplicationMessage;
@@ -151,4 +152,17 @@ class SiteController extends Base
             ->all();
         return $this->render('archive', ['archive' => $listing]);
     }
+
+    public function actionDownloadMagazine()
+    {
+        $model = new FormLoginForDownload();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            // TODO: fetch magazine year
+            $pathToFile = Yii::getAlias('@app').'/magazines/pnroit-2019.pdf';
+            return \Yii::$app->response->sendFile($pathToFile);
+        } else {
+            return $this->render('download_magazine', ['model' => $model]);
+        }
+    }
+
 }
