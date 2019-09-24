@@ -1,5 +1,6 @@
 <?php
 
+use yii\db\Schema;
 use yii\db\Migration;
 
 class m190924_193134_members extends Migration
