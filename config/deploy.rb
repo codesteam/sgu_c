@@ -15,7 +15,7 @@ set :branch, 'master'
 set :deploy_to, ->{ fetch(:deploy_to) }
 
 # Shared folders between all releases
-set :linked_dirs, %w{runtime vendor web/assets web/uploads}
+set :linked_dirs, %w{runtime vendor web/assets web/uploads members}
 
 namespace :deploy do
 
