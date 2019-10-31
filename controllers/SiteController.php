@@ -130,6 +130,7 @@ class SiteController extends Base
             '2017-09-photo'       => '/static/2017-09/photo',
             '2018-09-photo'       => '/static/2018-09/photo',
             '2018-09-info'        => '/static/2018-09/info',
+            '2019-09-photo'       => '/static/2019-09/photo',
             'info'                => '/static/2019-09/info',
         ];
         if (!isset($map[$view])) {
