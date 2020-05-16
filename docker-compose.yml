@@ -1,0 +1,43 @@
+---
+
+version: '3.7'
+
+services:
+  sguc:
+    container_name: sguc
+    build:
+      context: .
+      dockerfile: ./Dockerfile.sguc
+    volumes:
+      - .:/var/lib/sguc
+    depends_on:
+      - mysql
+    ports:
+      - 3000:80
+    tty: true
+    stdin_open: true
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Europe/Moscow
+    volumes:
+      - ./docker/mysql-data:/var/lib/mysql
+    ports:
+      - 3303:3306
+
+  # mysql:
+  #   container_name: mysql
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile.mysql
+  #   environment:
+  #     MYSQL_PASSWORD: password
+  #   ports:
+  #     - 5433:5432
+  #   volumes:
+  #     - '.database:/var/lib/postgresql'

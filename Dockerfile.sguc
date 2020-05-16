@@ -1,0 +1,18 @@
+FROM php:7.0-fpm
+
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    nginx \
+    mc
+
+RUN docker-php-ext-install -j$(nproc) json dba pdo_mysql
+
+RUN rm --force /etc/nginx/sites-enabled/default
+COPY ./docker/nginx.conf /etc/nginx/sites-enabled/nginx.conf
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
+WORKDIR '/var/lib/sguc'
+
+CMD /etc/init.d/nginx start && php-fpm

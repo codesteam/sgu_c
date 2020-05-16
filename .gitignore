@@ -1,5 +1,6 @@
 .env
 /runtime
+/docker/mysql-data
 /magazines
 /web/assets
 /web/uploads
