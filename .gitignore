@@ -1,5 +1,4 @@
 .env
-/vendor
 /runtime
 /magazines
 /web/assets
