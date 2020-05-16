@@ -16,16 +16,13 @@ set :deploy_to, ->{ fetch(:deploy_to) }
 
 # Shared folders between all releases
 set :linked_dirs, %w{runtime web/assets web/uploads magazines}
+set :linked_files, %w[.env]
 
 namespace :deploy do
-
   task :app_setup do
     on roles(:web) do
       # TODO: fix it use Yii2 assets
       execute "chmod -R 777 #{current_path}/web/assets_app"
-
-      # Install all vendors with composer
-      execute "cd #{release_path} && composer install"
 
       # Run YII migrations
       execute "#{current_path}/yii migrate --interactive=0"
@@ -33,5 +30,4 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:app_setup'
-
 end
