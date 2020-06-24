@@ -99,7 +99,7 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2020'])->
                     </tr>
                 </tbody>
             </table>
-            <a href="/assets_app/files/2019-09/organizers.pdf">Подробнее</a>
+            <a href="/assets_app/files/2020-09/organizers.docx">Подробнее</a>
             <?=HtmlApplication::h2Queue('Информационное обеспечение')?>
             <ul>
                 <li>Отдел Маркетинга и PR Севастопольского государственного университета</li>
@@ -112,7 +112,7 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2020'])->
             <?=HtmlApplication::h2Queue('Программа конференции')?>
             <p>
                 Скачать программу конференции можно по
-                <a href="/assets_app/files/2019-09/program.pdf">ссылке</a>
+                <a href="/assets_app/files/2020-09/program.pdf">ссылке</a>
             </p>
             <?=HtmlApplication::h2Queue('Тематические направления')?>
             <ul>
