@@ -8,6 +8,16 @@ class News
     {
         return [
             [
+                'date' => '24 Июня 2020',
+                'text' => '
+                    <p>
+                        Информация о конференции:
+                        <ul>
+                            <li><a href="/assets_app/files/2020-09/program.pdf">Программа конференции</a><br/></li>
+                         </ul>
+                    </p>
+            '],
+            [
                 'date' => '18 Марта 2020',
                 'text' => '
                     <p>
