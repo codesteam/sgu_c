@@ -117,7 +117,7 @@ $conference = ConferenceEvent::find()->where(['slug' => 'conference-09-2020'])->
                 <li>Журнал «Региональная информатика и информационная безопасность» </li>
                 <li>Севастопольское телевидение</li>
             </ul>
-            <?=HtmlApplication::h2Queue('Программа конференции')?>
+            
             <p>
                 Скачать программу конференции можно по
                 <a href="/assets_app/files/2020-09/program.pdf">ссылке</a>
