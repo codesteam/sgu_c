@@ -19,6 +19,7 @@ class News
                             <li><a href="/assets_app/files/2020-09/program.pdf">Программа конференции</a><br/></li>
                         </ul>
                     </p>
+                    <p class="text-center"><img src="/assets_app/images/program-2020.jpg" /></p>
             '],
             [
                 'date' => '24 Июня 2020',
