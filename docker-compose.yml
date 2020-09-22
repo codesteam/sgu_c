@@ -11,13 +11,13 @@ services:
     volumes:
       - .:/var/lib/sguc
     depends_on:
-      - mysql
+      - sguc-mysql
     ports:
       - 3000:80
     tty: true
     stdin_open: true
 
-  mysql:
+  sguc-mysql:
     container_name: mysql
     image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password
@@ -29,3 +29,9 @@ services:
       - ./docker/mysql-data:/var/lib/mysql
     ports:
       - 3303:3306
+
+  sguc-adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 3001:8080
