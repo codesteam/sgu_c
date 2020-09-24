@@ -133,7 +133,7 @@ $this->title = 'Межрегиональная научно-практическ
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <img src="/assets_app/images/magazine-2020.jpg" class="img-thumbnail" />
+                        <img src="/assets_app/images/program-2020.jpg" class="img-thumbnail" />
                         <div class="text-center">
                             <br/>
                             <a class="btn btn-lg btn-info" href="/site/download-magazine?year=2020">Скачать за 2020 г.</a>
