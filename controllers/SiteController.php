@@ -159,8 +159,11 @@ class SiteController extends Base
     {
         $model = new FormLoginForDownload();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            // TODO: fetch magazine year
-            $pathToFile = Yii::getAlias('@app').'/magazines/pnroit-2019.pdf';
+            if ($_GET['year'] == '2019') {
+                $pathToFile = Yii::getAlias('@app').'/magazines/pnroit-2019.pdf';
+            } else {
+                $pathToFile = Yii::getAlias('@app').'/magazines/pnroit-2020.pdf';
+            }            
             return \Yii::$app->response->sendFile($pathToFile);
         } else {
             return $this->render('download_magazine', ['model' => $model]);

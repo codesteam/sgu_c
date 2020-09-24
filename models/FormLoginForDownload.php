@@ -75,9 +75,6 @@ class FormLoginForDownload extends Model
         if ($this->_user === false) {
             $this->_user = Member::findByUsername($this->username);
         }
-// var_dump($this->_user);
-// var_dump(Yii::$app->getSecurity()->generatePasswordHash('member2019'));
-// die;
         return $this->_user;
     }
 }
