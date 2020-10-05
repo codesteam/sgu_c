@@ -157,17 +157,17 @@ class SiteController extends Base
 
     public function actionDownloadMagazine()
     {
-        $model = new FormLoginForDownload();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        // $model = new FormLoginForDownload();
+        //if ($model->load(Yii::$app->request->post()) && $model->login()) {
             if ($_GET['year'] == '2019') {
                 $pathToFile = Yii::getAlias('@app').'/magazines/pnroit-2019.pdf';
             } else {
                 $pathToFile = Yii::getAlias('@app').'/magazines/pnroit-2020.pdf';
             }            
             return \Yii::$app->response->sendFile($pathToFile);
-        } else {
-            return $this->render('download_magazine', ['model' => $model]);
-        }
+        // } else {
+        //     return $this->render('download_magazine', ['model' => $model]);
+        // }
     }
 
 }
