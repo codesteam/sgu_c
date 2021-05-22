@@ -3,22 +3,22 @@
 version: '3'
 
 services:
-  sguc:
-    container_name: sguc
+  pnroit:
+    container_name: pnroit
     build:
       context: .
-      dockerfile: ./Dockerfile.sguc
+      dockerfile: ./Dockerfile.pnroit
     volumes:
-      - .:/var/lib/sguc
+      - .:/application
     depends_on:
-      - sguc-mysql
+      - pnroit-mysql
     ports:
-      - 3000:80
+      - 3710:80
     tty: true
     stdin_open: true
 
-  sguc-mysql:
-    container_name: mysql
+  pnroit-mysql:
+    container_name: pnroit-mysql
     image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password
     restart: always
@@ -28,10 +28,10 @@ services:
     volumes:
       - ./docker/mysql-data:/var/lib/mysql
     ports:
-      - 3303:3306
+      - 3711:3306
 
-  sguc-adminer:
+  pnroit-adminer:
     image: adminer
     restart: always
     ports:
-      - 3001:8080
+      - 3712:8080

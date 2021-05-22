@@ -13,6 +13,6 @@ COPY ./docker/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
-WORKDIR '/var/lib/sguc'
+WORKDIR '/application'
 
 CMD /etc/init.d/nginx start && php-fpm
