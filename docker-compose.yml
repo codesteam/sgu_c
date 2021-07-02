@@ -13,7 +13,7 @@ services:
     depends_on:
       - pnroit-mysql
     ports:
-      - 3710:80
+      - 3712:80
     tty: true
     stdin_open: true
 
@@ -26,12 +26,15 @@ services:
       MYSQL_ROOT_PASSWORD: password
       TZ: Europe/Moscow
     volumes:
-      - ./docker/mysql-data:/var/lib/mysql
+      - volume-pnroit-mysql:/var/lib/mysql
     ports:
-      - 3711:3306
+      - 3713:3306
 
   pnroit-adminer:
     image: adminer
     restart: always
     ports:
-      - 3712:8080
+      - 3714:8080
+
+volumes:
+  volume-pnroit-mysql:
