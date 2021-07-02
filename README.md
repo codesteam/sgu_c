@@ -1,6 +1,6 @@
 # sgu_c
 
-Contain PHP code for Sevastopol State University conference site http://sguc.code-bit.com/
+Contain PHP code for Sevastopol State University conference site http://pnroit.code-bit.com/
 
 ## License
 
