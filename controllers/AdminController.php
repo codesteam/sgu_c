@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\helpers\HtmlApplication;
 use Yii;
 use yii\filters\AccessControl;
 use app\models\FormAdminApplicationMessage;
@@ -10,6 +11,7 @@ use app\models\ApplicationMessage;
 use app\models\Ticket;
 use app\models\ConferenceEvent;
 use app\helpers\Mailer;
+use ZipArchive;
 
 class AdminController extends Base
 {
@@ -37,6 +39,47 @@ class AdminController extends Base
     public function actionIndex()
     {
         return $this->redirect(['/admin/applications'], 302);
+    }
+
+    public function actionExportApplications()
+    {
+        if (!Yii::$app->user->can('application_listing')) {
+            return $this->accessDenied();
+        }
+        $currentConference = ConferenceEvent::getCurrent();
+
+        $applications = Application::find()->where(['applications.conference_event_id' => $currentConference->id])->joinWith('category')->orderBy(['id' => SORT_DESC])->all();
+        $result = $this->renderPartial('applicationsExport', ['applications' => $applications]);
+
+        $membersFile = tempnam(sys_get_temp_dir(), 'local');
+        file_put_contents($membersFile, $result);
+
+        $files[] = ['path' => $membersFile, 'name' => 'members.html'];
+        $file = tempnam(sys_get_temp_dir(), 'local');
+        $zip = new ZipArchive();
+        if ($zip->open($file, ZipArchive::CREATE) !== TRUE) {
+            throw new \Exception('Cannot create a zip file');
+        }
+        foreach ($applications as $application) {
+            foreach ($application->applicationFiles as $index => $uploadedFile) {
+                $files[] = [
+                    'path' => __DIR__ . '/../web/uploads/'.$uploadedFile->name,
+                    'name' => $application->id . '_' . ($index + 1) . '.doc'
+                ];
+            }
+        }
+
+        foreach ($files as $archiveFile) {
+            $zip->addFile($archiveFile['path'], $archiveFile['name']);
+        }
+        $zip->close();
+
+        header("Content-type: application/zip");
+        header("Content-Disposition: attachment; filename=members.zip");
+        header("Content-length: " . filesize($file));
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        echo file_get_contents($file);
     }
 
     public function actionApplications()

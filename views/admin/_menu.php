@@ -27,5 +27,10 @@
             </a>
         </li>
     <? endif ?>
+    <? if (Yii::$app->user->can('application_listing')) :?>
+        <a href="/admin/export-applications" target="_blank" class="btn btn-danger" style="float: right;margin-top: 5px">
+            Экспорт всех заявок
+        </a>
+    <? endif ?>
 </ul>
 <br/>
